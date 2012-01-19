@@ -18,10 +18,11 @@
 
 //#import <RestKit/RestKit.h>
 
-#import </Users/ian/Desktop/LCSample 2/RestKit/Code/Support/Parsers/JSON/RKJSONParserJSONKit.h>
+#import <RestKit/Support/JSON/JSONKit/RKJSONParserJSONKit.h>
 
 #import "LCAuth.h"
 #import "Auth_Result.h"
+#import "KerberosAccountManager.h"
 
 @implementation AppDelegate
 
@@ -87,7 +88,7 @@
     RKObjectRouter* router = [[RKObjectRouter new] autorelease];
     [router routeClass:[LCAuth class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodPOST];
     
-//    [router routeClass:[Auth_Result class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodGET];  
+    [router routeClass:[Auth_Result class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodGET];  
     
     manager.router = router;
     
@@ -108,30 +109,21 @@
     LCAuth *auth = [LCAuth new];
     auth.username = @"bamberad";
     auth.password = [self returnMD5Hash:@"password"];
-    //RKObjectMapping* authMap = [manager.mappingProvider objectMappingForClass:[Auth_Result class] ];
+    Auth_Result *result = [Auth_Result new];
+    RKObjectMapping* authMap = [manager.mappingProvider objectMappingForClass:[Auth_Result class] ];
     [manager postObject:auth mapResponseWith:authMapping delegate:self];
-//    NSLog(@"reponse: %@", ((LCAuth*)response.sourceObject).username);
+    [manager getObject:result mapResponseWith:authMap delegate:self];
     
+    [[KerberosAccountManager defaultManager] setSourceURL:@"https://netreg.rose-hulman.edu/tools/networkUsage.pl"];
+    [[KerberosAccountManager defaultManager] setUsername:@"cundifij"];
+    [[KerberosAccountManager defaultManager] setPassword:@"password"];
     
+    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[[KerberosAccountManager defaultManager] sourceURL]] 
+                                                                 cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData 
+                                                             timeoutInterval:10.0];
     
-    NSLog(@"reponse: %@", auth.result);
-    
-//    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"POST successful"
-//                                                        message:((Auth_Result*)response.result.asObject). delegate:self 
-//                                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//    [alertView show];
-    
-//    Auth_Result *auth_result = [Auth_Result new];
-//    auth_result.result = nil;
-//    auth_result.token = nil;
-//    [manager getObject:auth_result delegate:self];
-//    
-//    NSLog(@"result: %@",auth_result.result);
-    
-//    RKClient* client = [RKClient clientWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"];  
-//    RKRequest *request = [client get:@"/rest/login/auth_result.json" delegate:self]; 
-//    
-//    NSLog(@"request: %d",request.isGET);
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [conn start];
     
     
     return YES;
@@ -205,6 +197,35 @@
 - (void)objectLoaderDidLoadUnexpectedResponse:(RKObjectLoader *)objectLoader {
     NSLog(@"unexpected response...");
 }
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+//    RKJSONParserJSONKit* parser = [RKJSONParserJSONKit new]; 
+//    LCAuth *auth2 = [response parsedBody:NULL]; 
+//    NSLog(@"%@",auth2);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    NSLog(@"connection did receive authentication challenge");
+    
+    if([challenge previousFailureCount] == 0) {
+        NSString * username = [[KerberosAccountManager defaultManager] username];
+        NSString * password = [[KerberosAccountManager defaultManager] password];
+        //NSLog(@"creating credentials with user:%@ pass:%@", username, password);
+        NSURLCredential * cred = [[NSURLCredential alloc] initWithUser:username password:password persistence:NSURLCredentialPersistenceNone];
+        [[challenge sender] useCredential:cred forAuthenticationChallenge:challenge];
+    } else {
+        NSLog(@"cancel?");
+        [[challenge sender] cancelAuthenticationChallenge:challenge];
+    }
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    //if it gets here, that means that authentication was successful, therefore the user IS part of the RHIT kerberos database...
+    //so we can probably just set some sort of boolean value
+    //...more testing necessary
+}
+
 
 /*
 // Optional UITabBarControllerDelegate method.

@@ -17,6 +17,8 @@
 		3C4CA2DA14BFA09900EE78AA /* Tutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2D914BFA09900EE78AA /* Tutor.m */; };
 		3C4CA2DD14BFA0D700EE78AA /* DocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2DC14BFA0D700EE78AA /* DocumentController.m */; };
 		3C4CA2EB14BFB70D00EE78AA /* LCAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */; };
+		3C7B103614C88AD9003FBF43 /* KerberosAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B103514C88AD9003FBF43 /* KerberosAccountManager.m */; };
+		3C7B103914C88B14003FBF43 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B103814C88B14003FBF43 /* KeychainItemWrapper.m */; };
 		3CC0CE3214C0939C0027F535 /* Auth_Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0CE3114C0939C0027F535 /* Auth_Result.m */; };
 		430EB9C21460B2150097DB81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C11460B2150097DB81 /* UIKit.framework */; };
 		430EB9C41460B2150097DB81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C31460B2150097DB81 /* Foundation.framework */; };
@@ -166,24 +168,28 @@
 
 /* Begin PBXFileReference section */
 		3C0DD7F714BFE328002DFFE4 /* SampleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModel.xcdatamodel; sourceTree = "<group>"; };
-		3C4CA2C314BF9FD200EE78AA /* Timeslot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timeslot.h; path = LCSample/Timeslot.h; sourceTree = "<group>"; };
-		3C4CA2C414BF9FD200EE78AA /* Timeslot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timeslot.m; path = LCSample/Timeslot.m; sourceTree = "<group>"; };
-		3C4CA2C614BFA01000EE78AA /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = LCSample/Course.h; sourceTree = "<group>"; };
-		3C4CA2C714BFA01000EE78AA /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = LCSample/Course.m; sourceTree = "<group>"; };
-		3C4CA2C914BFA02A00EE78AA /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Document.h; path = LCSample/Document.h; sourceTree = "<group>"; };
-		3C4CA2CA14BFA02A00EE78AA /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Document.m; path = LCSample/Document.m; sourceTree = "<group>"; };
-		3C4CA2CC14BFA04000EE78AA /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Student.h; path = LCSample/Student.h; sourceTree = "<group>"; };
-		3C4CA2CD14BFA04000EE78AA /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Student.m; path = LCSample/Student.m; sourceTree = "<group>"; };
-		3C4CA2D214BFA07800EE78AA /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Schedule.h; path = LCSample/Schedule.h; sourceTree = "<group>"; };
-		3C4CA2D314BFA07800EE78AA /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Schedule.m; path = LCSample/Schedule.m; sourceTree = "<group>"; };
-		3C4CA2D514BFA08B00EE78AA /* ContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactController.h; path = LCSample/ContactController.h; sourceTree = "<group>"; };
-		3C4CA2D614BFA08B00EE78AA /* ContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactController.m; path = LCSample/ContactController.m; sourceTree = "<group>"; };
-		3C4CA2D814BFA09900EE78AA /* Tutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutor.h; path = LCSample/Tutor.h; sourceTree = "<group>"; };
-		3C4CA2D914BFA09900EE78AA /* Tutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutor.m; path = LCSample/Tutor.m; sourceTree = "<group>"; };
-		3C4CA2DB14BFA0D700EE78AA /* DocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentController.h; path = LCSample/DocumentController.h; sourceTree = "<group>"; };
-		3C4CA2DC14BFA0D700EE78AA /* DocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentController.m; path = LCSample/DocumentController.m; sourceTree = "<group>"; };
+		3C4CA2C314BF9FD200EE78AA /* Timeslot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timeslot.h; sourceTree = "<group>"; };
+		3C4CA2C414BF9FD200EE78AA /* Timeslot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeslot.m; sourceTree = "<group>"; };
+		3C4CA2C614BFA01000EE78AA /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		3C4CA2C714BFA01000EE78AA /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		3C4CA2C914BFA02A00EE78AA /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		3C4CA2CA14BFA02A00EE78AA /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
+		3C4CA2CC14BFA04000EE78AA /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		3C4CA2CD14BFA04000EE78AA /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		3C4CA2D214BFA07800EE78AA /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		3C4CA2D314BFA07800EE78AA /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		3C4CA2D514BFA08B00EE78AA /* ContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactController.h; sourceTree = "<group>"; };
+		3C4CA2D614BFA08B00EE78AA /* ContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
+		3C4CA2D814BFA09900EE78AA /* Tutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tutor.h; sourceTree = "<group>"; };
+		3C4CA2D914BFA09900EE78AA /* Tutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tutor.m; sourceTree = "<group>"; };
+		3C4CA2DB14BFA0D700EE78AA /* DocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentController.h; sourceTree = "<group>"; };
+		3C4CA2DC14BFA0D700EE78AA /* DocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentController.m; sourceTree = "<group>"; };
 		3C4CA2E914BFB70C00EE78AA /* LCAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCAuth.h; path = LCSample/LCAuth.h; sourceTree = "<group>"; };
 		3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCAuth.m; path = LCSample/LCAuth.m; sourceTree = "<group>"; };
+		3C7B103414C88AD9003FBF43 /* KerberosAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KerberosAccountManager.h; sourceTree = "<group>"; };
+		3C7B103514C88AD9003FBF43 /* KerberosAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KerberosAccountManager.m; sourceTree = "<group>"; };
+		3C7B103714C88B14003FBF43 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		3C7B103814C88B14003FBF43 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		3CC0CE3014C0939C0027F535 /* Auth_Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Auth_Result.h; path = LCSample/Auth_Result.h; sourceTree = "<group>"; };
 		3CC0CE3114C0939C0027F535 /* Auth_Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Auth_Result.m; path = LCSample/Auth_Result.m; sourceTree = "<group>"; };
 		430EB9BD1460B2150097DB81 /* LCSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,14 +261,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		430EB9B21460B2140097DB81 = {
+		3C7B102C14C86E64003FBF43 /* Domain Classes */ = {
 			isa = PBXGroup;
 			children = (
 				3C4CA2DB14BFA0D700EE78AA /* DocumentController.h */,
-				3C4CA2E914BFB70C00EE78AA /* LCAuth.h */,
-				3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */,
-				3CC0CE3014C0939C0027F535 /* Auth_Result.h */,
-				3CC0CE3114C0939C0027F535 /* Auth_Result.m */,
 				3C4CA2DC14BFA0D700EE78AA /* DocumentController.m */,
 				3C4CA2D814BFA09900EE78AA /* Tutor.h */,
 				3C4CA2D914BFA09900EE78AA /* Tutor.m */,
@@ -278,6 +280,62 @@
 				3C4CA2CA14BFA02A00EE78AA /* Document.m */,
 				3C4CA2C614BFA01000EE78AA /* Course.h */,
 				3C4CA2C714BFA01000EE78AA /* Course.m */,
+			);
+			name = "Domain Classes";
+			sourceTree = "<group>";
+		};
+		3C7B102D14C86E98003FBF43 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				430EB9FD1460BE190097DB81 /* tutor.jpg */,
+				430EB9F61460BAB30097DB81 /* logo_rhit.png */,
+				430EB9D61460B2150097DB81 /* first.png */,
+				430EB9D81460B2150097DB81 /* first@2x.png */,
+				430EB9DD1460B2150097DB81 /* second.png */,
+				430EB9DF1460B2150097DB81 /* second@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		3C7B102E14C86EBF003FBF43 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				430EB9D31460B2150097DB81 /* FirstViewController.h */,
+				430EB9D41460B2150097DB81 /* FirstViewController.m */,
+				430EB9DA1460B2150097DB81 /* SecondViewController.h */,
+				430EB9DB1460B2150097DB81 /* SecondViewController.m */,
+				430EB9EC1460B84B0097DB81 /* ThirdViewController.h */,
+				430EB9ED1460B84B0097DB81 /* ThirdViewController.m */,
+				430EB9F81460BDC80097DB81 /* TutorProfileViewController.h */,
+				430EB9F91460BDC80097DB81 /* TutorProfileViewController.m */,
+				430EB9FF1460BF6E0097DB81 /* TutorScheduleViewController.h */,
+				430EBA001460BF6E0097DB81 /* TutorScheduleViewController.m */,
+				430EB9F11460B85C0097DB81 /* FourthViewController.h */,
+				430EB9F21460B85C0097DB81 /* FourthViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3C7B102F14C86EF8003FBF43 /* xib files */ = {
+			isa = PBXGroup;
+			children = (
+				430EB9E11460B2150097DB81 /* FirstViewController.xib */,
+				430EB9E41460B2150097DB81 /* SecondViewController.xib */,
+				430EB9FA1460BDC80097DB81 /* TutorProfileViewController.xib */,
+				430EBA011460BF6E0097DB81 /* TutorScheduleViewController.xib */,
+				430EB9EE1460B84B0097DB81 /* ThirdViewController.xib */,
+				430EB9F31460B85C0097DB81 /* FourthViewController.xib */,
+			);
+			name = "xib files";
+			sourceTree = "<group>";
+		};
+		430EB9B21460B2140097DB81 = {
+			isa = PBXGroup;
+			children = (
+				3C4CA2E914BFB70C00EE78AA /* LCAuth.h */,
+				3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */,
+				3CC0CE3014C0939C0027F535 /* Auth_Result.h */,
+				3CC0CE3114C0939C0027F535 /* Auth_Result.m */,
 				894E4FF614BF918700301063 /* RestKit.xcodeproj */,
 				430EB9C71460B2150097DB81 /* LCSample */,
 				430EB9C01460B2150097DB81 /* Frameworks */,
@@ -312,34 +370,17 @@
 		430EB9C71460B2150097DB81 /* LCSample */ = {
 			isa = PBXGroup;
 			children = (
-				430EB9FD1460BE190097DB81 /* tutor.jpg */,
-				430EB9F61460BAB30097DB81 /* logo_rhit.png */,
+				3C7B102F14C86EF8003FBF43 /* xib files */,
+				3C7B102E14C86EBF003FBF43 /* View Controllers */,
+				3C7B102D14C86E98003FBF43 /* Images */,
+				3C7B102C14C86E64003FBF43 /* Domain Classes */,
+				430EB9C81460B2150097DB81 /* Supporting Files */,
 				430EB9D01460B2150097DB81 /* AppDelegate.h */,
 				430EB9D11460B2150097DB81 /* AppDelegate.m */,
-				430EB9D31460B2150097DB81 /* FirstViewController.h */,
-				430EB9D41460B2150097DB81 /* FirstViewController.m */,
-				3C0DD7F614BFE328002DFFE4 /* SampleModel.xcdatamodeld */,
-				430EB9D61460B2150097DB81 /* first.png */,
-				430EB9D81460B2150097DB81 /* first@2x.png */,
-				430EB9DA1460B2150097DB81 /* SecondViewController.h */,
-				430EB9DB1460B2150097DB81 /* SecondViewController.m */,
-				430EB9DD1460B2150097DB81 /* second.png */,
-				430EB9DF1460B2150097DB81 /* second@2x.png */,
-				430EB9E11460B2150097DB81 /* FirstViewController.xib */,
-				430EB9E41460B2150097DB81 /* SecondViewController.xib */,
-				430EB9C81460B2150097DB81 /* Supporting Files */,
-				430EB9EC1460B84B0097DB81 /* ThirdViewController.h */,
-				430EB9ED1460B84B0097DB81 /* ThirdViewController.m */,
-				430EB9F81460BDC80097DB81 /* TutorProfileViewController.h */,
-				430EB9F91460BDC80097DB81 /* TutorProfileViewController.m */,
-				430EB9FA1460BDC80097DB81 /* TutorProfileViewController.xib */,
-				430EB9FF1460BF6E0097DB81 /* TutorScheduleViewController.h */,
-				430EBA001460BF6E0097DB81 /* TutorScheduleViewController.m */,
-				430EBA011460BF6E0097DB81 /* TutorScheduleViewController.xib */,
-				430EB9EE1460B84B0097DB81 /* ThirdViewController.xib */,
-				430EB9F11460B85C0097DB81 /* FourthViewController.h */,
-				430EB9F21460B85C0097DB81 /* FourthViewController.m */,
-				430EB9F31460B85C0097DB81 /* FourthViewController.xib */,
+				3C7B103414C88AD9003FBF43 /* KerberosAccountManager.h */,
+				3C7B103514C88AD9003FBF43 /* KerberosAccountManager.m */,
+				3C7B103714C88B14003FBF43 /* KeychainItemWrapper.h */,
+				3C7B103814C88B14003FBF43 /* KeychainItemWrapper.m */,
 			);
 			path = LCSample;
 			sourceTree = "<group>";
@@ -347,6 +388,7 @@
 		430EB9C81460B2150097DB81 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3C0DD7F614BFE328002DFFE4 /* SampleModel.xcdatamodeld */,
 				430EB9C91460B2150097DB81 /* LCSample-Info.plist */,
 				430EB9CA1460B2150097DB81 /* InfoPlist.strings */,
 				430EB9CD1460B2150097DB81 /* main.m */,
@@ -557,6 +599,8 @@
 				3C4CA2EB14BFB70D00EE78AA /* LCAuth.m in Sources */,
 				3C0DD7F814BFE329002DFFE4 /* SampleModel.xcdatamodeld in Sources */,
 				3CC0CE3214C0939C0027F535 /* Auth_Result.m in Sources */,
+				3C7B103614C88AD9003FBF43 /* KerberosAccountManager.m in Sources */,
+				3C7B103914C88B14003FBF43 /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

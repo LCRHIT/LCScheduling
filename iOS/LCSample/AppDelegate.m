@@ -123,7 +123,7 @@
     //[manager getObject:result mapResponseWith:authMap delegate:self];
     
     LCArgs *args = [LCArgs new];
-    args.TutorID = @"1";
+    args.LCTutorID = @"1";
     RKObjectMapping *argMap = [RKObjectMapping mappingForClass:[LCArgs class]];
     [argMap mapKeyPath:@"TutorID" toAttribute:@"TutorID"];
     [manager.mappingProvider setMapping:argMap forKeyPath:@"LCArgs"];

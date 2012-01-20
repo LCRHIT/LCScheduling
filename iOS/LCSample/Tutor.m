@@ -10,4 +10,6 @@
 
 @implementation Tutor
 
+@synthesize name,year,email,major;
+
 @end

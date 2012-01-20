@@ -13,6 +13,4 @@
 
 @interface FirstViewController : UIViewController <RKObjectLoaderDelegate>
 
--(NSString *) returnMD5Hash:(NSString*)concat;
-
 @end

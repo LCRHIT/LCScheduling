@@ -16,6 +16,10 @@
 
 #import "FourthViewController.h"
 
+#import "LoginViewController.h"
+
+#import "LCArgs.h"
+
 //#import <RestKit/RestKit.h>
 
 #import <RestKit/Support/JSON/JSONKit/RKJSONParserJSONKit.h>
@@ -45,6 +49,8 @@
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, nil];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    LoginViewController *loginView = [LoginViewController alloc];
+    [self.window.rootViewController presentModalViewController:loginView animated:NO];
     
 //    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"];
 //    RKObjectRouter* router = [[RKObjectRouter new] autorelease];
@@ -86,9 +92,11 @@
     
     
     RKObjectRouter* router = [[RKObjectRouter new] autorelease];
-    [router routeClass:[LCAuth class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodPOST];
+//    [router routeClass:[LCAuth class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodPOST];
     
     [router routeClass:[Auth_Result class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodGET];  
+    
+    [router routeClass:[LCArgs class] toResourcePath:@"/rest/get_tutor_by_id" forMethod:RKRequestMethodPOST];  
     
     manager.router = router;
     
@@ -109,21 +117,20 @@
     LCAuth *auth = [LCAuth new];
     auth.username = @"bamberad";
     auth.password = [self returnMD5Hash:@"password"];
-    Auth_Result *result = [Auth_Result new];
-    RKObjectMapping* authMap = [manager.mappingProvider objectMappingForClass:[Auth_Result class] ];
-    [manager postObject:auth mapResponseWith:authMapping delegate:self];
-    [manager getObject:result mapResponseWith:authMap delegate:self];
+//    Auth_Result *result = [Auth_Result new];
+//    RKObjectMapping* authMap = [manager.mappingProvider objectMappingForClass:[Auth_Result class] ];
+//    [manager postObject:auth mapResponseWith:authMapping delegate:self];
+    //[manager getObject:result mapResponseWith:authMap delegate:self];
     
-    [[KerberosAccountManager defaultManager] setSourceURL:@"https://netreg.rose-hulman.edu/tools/networkUsage.pl"];
-    [[KerberosAccountManager defaultManager] setUsername:@"cundifij"];
-    [[KerberosAccountManager defaultManager] setPassword:@"password"];
+    LCArgs *args = [LCArgs new];
+    args.TutorID = @"1";
+    RKObjectMapping *argMap = [RKObjectMapping mappingForClass:[LCArgs class]];
+    [argMap mapKeyPath:@"TutorID" toAttribute:@"TutorID"];
+    [manager.mappingProvider setMapping:argMap forKeyPath:@"LCArgs"];
+    [manager postObject:args mapResponseWith:argMap delegate:self];
+//    [manager postObject:args delegate:self];
     
-    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[[KerberosAccountManager defaultManager] sourceURL]] 
-                                                                 cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData 
-                                                             timeoutInterval:10.0];
-    
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [conn start];
+    [manager loadObjectsAtResourcePath:@"/rest/get_tutor_by_id" delegate:self];
     
     
     return YES;
@@ -180,17 +187,17 @@
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-    NSLog(@"eeeerror: %@",error);
+    NSLog(@"error: %@",error);
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {
-    NSLog(@"loaded objects");
+//    NSLog(@"loaded objects %@",((Auth_Result*)[objects objectAtIndex:1]).token);
 //    NSLog(@"objects: %@",objects);
 }
 
 //what made the call
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object {
-    NSLog(@"loaded object");
+//    NSLog(@"Auth_Result.token = %@",((LCAuth*)object).username);
 //    NSLog(@"object: %@",((LCAuth*)object).username);
 }
 
@@ -224,6 +231,7 @@
     //if it gets here, that means that authentication was successful, therefore the user IS part of the RHIT kerberos database...
     //so we can probably just set some sort of boolean value
     //...more testing necessary
+    NSLog(@"Login successful");
 }
 
 

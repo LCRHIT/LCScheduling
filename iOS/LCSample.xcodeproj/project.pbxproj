@@ -19,6 +19,9 @@
 		3C4CA2EB14BFB70D00EE78AA /* LCAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */; };
 		3C7B103614C88AD9003FBF43 /* KerberosAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B103514C88AD9003FBF43 /* KerberosAccountManager.m */; };
 		3C7B103914C88B14003FBF43 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B103814C88B14003FBF43 /* KeychainItemWrapper.m */; };
+		3C7B103D14C8DB05003FBF43 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B103B14C8DB05003FBF43 /* LoginViewController.m */; };
+		3C7B103E14C8DB05003FBF43 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C7B103C14C8DB05003FBF43 /* LoginViewController.xib */; };
+		3C7B104114C8E5A9003FBF43 /* LCArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B104014C8E5A8003FBF43 /* LCArgs.m */; };
 		3CC0CE3214C0939C0027F535 /* Auth_Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0CE3114C0939C0027F535 /* Auth_Result.m */; };
 		430EB9C21460B2150097DB81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C11460B2150097DB81 /* UIKit.framework */; };
 		430EB9C41460B2150097DB81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C31460B2150097DB81 /* Foundation.framework */; };
@@ -190,6 +193,11 @@
 		3C7B103514C88AD9003FBF43 /* KerberosAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KerberosAccountManager.m; sourceTree = "<group>"; };
 		3C7B103714C88B14003FBF43 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		3C7B103814C88B14003FBF43 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		3C7B103A14C8DB05003FBF43 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3C7B103B14C8DB05003FBF43 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3C7B103C14C8DB05003FBF43 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		3C7B103F14C8E5A8003FBF43 /* LCArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCArgs.h; sourceTree = "<group>"; };
+		3C7B104014C8E5A8003FBF43 /* LCArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCArgs.m; sourceTree = "<group>"; };
 		3CC0CE3014C0939C0027F535 /* Auth_Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Auth_Result.h; path = LCSample/Auth_Result.h; sourceTree = "<group>"; };
 		3CC0CE3114C0939C0027F535 /* Auth_Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Auth_Result.m; path = LCSample/Auth_Result.m; sourceTree = "<group>"; };
 		430EB9BD1460B2150097DB81 /* LCSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +320,8 @@
 				430EBA001460BF6E0097DB81 /* TutorScheduleViewController.m */,
 				430EB9F11460B85C0097DB81 /* FourthViewController.h */,
 				430EB9F21460B85C0097DB81 /* FourthViewController.m */,
+				3C7B103A14C8DB05003FBF43 /* LoginViewController.h */,
+				3C7B103B14C8DB05003FBF43 /* LoginViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -319,6 +329,7 @@
 		3C7B102F14C86EF8003FBF43 /* xib files */ = {
 			isa = PBXGroup;
 			children = (
+				3C7B103C14C8DB05003FBF43 /* LoginViewController.xib */,
 				430EB9E11460B2150097DB81 /* FirstViewController.xib */,
 				430EB9E41460B2150097DB81 /* SecondViewController.xib */,
 				430EB9FA1460BDC80097DB81 /* TutorProfileViewController.xib */,
@@ -332,6 +343,8 @@
 		430EB9B21460B2140097DB81 = {
 			isa = PBXGroup;
 			children = (
+				3C7B103F14C8E5A8003FBF43 /* LCArgs.h */,
+				3C7B104014C8E5A8003FBF43 /* LCArgs.m */,
 				3C4CA2E914BFB70C00EE78AA /* LCAuth.h */,
 				3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */,
 				3CC0CE3014C0939C0027F535 /* Auth_Result.h */,
@@ -570,6 +583,7 @@
 				430EB9FC1460BDC90097DB81 /* TutorProfileViewController.xib in Resources */,
 				430EB9FE1460BE190097DB81 /* tutor.jpg in Resources */,
 				430EBA031460BF6E0097DB81 /* TutorScheduleViewController.xib in Resources */,
+				3C7B103E14C8DB05003FBF43 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +615,8 @@
 				3CC0CE3214C0939C0027F535 /* Auth_Result.m in Sources */,
 				3C7B103614C88AD9003FBF43 /* KerberosAccountManager.m in Sources */,
 				3C7B103914C88B14003FBF43 /* KeychainItemWrapper.m in Sources */,
+				3C7B103D14C8DB05003FBF43 /* LoginViewController.m in Sources */,
+				3C7B104114C8E5A9003FBF43 /* LCArgs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

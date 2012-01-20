@@ -10,4 +10,9 @@
 
 @interface Tutor : NSObject
 
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *year;
+@property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSString *major;
+
 @end

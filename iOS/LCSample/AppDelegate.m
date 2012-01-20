@@ -47,6 +47,7 @@
     UIViewController *viewController4 = [[FourthViewController alloc] initWithNibName:@"FourthViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, nil];
+    [self.tabBarController shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationPortrait];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     LoginViewController *loginView = [LoginViewController alloc];
@@ -84,10 +85,14 @@
     RKObjectMapping* authSerializationMapping = [RKObjectMapping mappingForClass:[LCAuth class] ];
     [authSerializationMapping mapAttributes:@"username", @"password", nil];
     
+    RKObjectMapping* argSerializationMapping = [RKObjectMapping mappingForClass:[LCArgs class] ];
+    [argSerializationMapping mapAttributes:@"LCTutorID", nil];
+    
     [[RKParserRegistry sharedRegistry] setParserClass:[RKJSONParserJSONKit class] forMIMEType:@"text/html"];
     
     // Now register the mapping with the provider
     [manager.mappingProvider setSerializationMapping:authSerializationMapping forClass:[LCAuth class] ];
+    [manager.mappingProvider setSerializationMapping:argSerializationMapping forClass:[LCArgs class] ];
     [manager setSerializationMIMEType:RKMIMETypeJSON]; 
     
     
@@ -114,6 +119,11 @@
     
     [manager.mappingProvider setMapping:resultMapping forKeyPath:@"auth_result"];
     
+    RKObjectMapping *argMap = [RKObjectMapping mappingForClass:[LCArgs class]];
+    [argMap mapKeyPath:@"TutorID" toAttribute:@"TutorID"];
+    
+    [manager.mappingProvider setMapping:argMap forKeyPath:@"get_tutor_by_id"];
+    
     LCAuth *auth = [LCAuth new];
     auth.username = @"bamberad";
     auth.password = [self returnMD5Hash:@"password"];
@@ -124,9 +134,6 @@
     
     LCArgs *args = [LCArgs new];
     args.LCTutorID = @"1";
-    RKObjectMapping *argMap = [RKObjectMapping mappingForClass:[LCArgs class]];
-    [argMap mapKeyPath:@"TutorID" toAttribute:@"TutorID"];
-    [manager.mappingProvider setMapping:argMap forKeyPath:@"LCArgs"];
     [manager postObject:args mapResponseWith:argMap delegate:self];
 //    [manager postObject:args delegate:self];
     

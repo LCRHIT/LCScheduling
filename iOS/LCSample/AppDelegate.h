@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
+#import "Tutor.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate,UIAlertViewDelegate, RKObjectLoaderDelegate>
 
@@ -16,6 +17,8 @@
 @property (strong, nonatomic) NSManagedObjectContext *context;
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
+
+@property (strong, nonatomic) Tutor *sampleTutor;
 
 -(NSString *)returnMD5Hash:(NSString*)concat;
 

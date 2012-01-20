@@ -10,6 +10,8 @@
 
 @implementation FirstViewController
 
+@synthesize sampleTutor;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,25 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"];
-//    RKObjectRouter* router = [[RKObjectRouter new] autorelease];
-//    objectManager.router = router;
-//    
-//    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"SampleModel.sqlite"];
-//    
-//    RKManagedObjectMapping* authMapping = [RKManagedObjectMapping mappingForClass:[LCAuth class]];
-//    [authMapping mapAttributes:@"username", @"password", nil];
-//    [objectManager.mappingProvider setMapping:authMapping forKeyPath:@"lcauth"];
-//    
-//    [router routeClass:[LCAuth class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodPUT];
-//    
-//    LCAuth* auth = [LCAuth object];
-//    auth.username = @"bamberad";
-//    auth.password = [self returnMD5Hash:@"password"];
-//    
-//    
-//    [[RKObjectManager sharedManager] putObject:auth delegate:self];
-    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -83,6 +66,19 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (IBAction)tutorButtonPressed:(id)sender {
+    NSString *tutorInfo = [NSString stringWithFormat:@"Name: %@\nYear: %@\nEmail: %@\nMajor:%@",sampleTutor.name,sampleTutor.year,sampleTutor.email,sampleTutor.major];
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Here's Some Tutor Information"
+                                                      message:tutorInfo
+                                                     delegate:nil
+                                            cancelButtonTitle:@"Thanks!"
+                                            otherButtonTitles:nil];
+    
+    [message show];
+    
 }
 
 

@@ -10,7 +10,12 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <RestKit/RestKit.h>
 #import "LCAuth.h"
+#import "Tutor.h"
 
-@interface FirstViewController : UIViewController <RKObjectLoaderDelegate>
+@interface FirstViewController : UIViewController <UIAlertViewDelegate>
+
+@property(strong, nonatomic) Tutor *sampleTutor;
+
+- (IBAction)tutorButtonPressed:(id)sender;
 
 @end

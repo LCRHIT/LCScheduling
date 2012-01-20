@@ -33,6 +33,7 @@
 @synthesize window = _window;
 @synthesize tabBarController = _tabBarController;
 @synthesize context;
+@synthesize sampleTutor;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -41,10 +42,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
-    UIViewController *viewController3 = [[ThirdViewController alloc] initWithNibName:@"ThirdViewController" bundle:nil];
-    UIViewController *viewController4 = [[FourthViewController alloc] initWithNibName:@"FourthViewController" bundle:nil];
+    FirstViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
+    SecondViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+    ThirdViewController *viewController3 = [[ThirdViewController alloc] initWithNibName:@"ThirdViewController" bundle:nil];
+    FourthViewController *viewController4 = [[FourthViewController alloc] initWithNibName:@"FourthViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, nil];
     [self.tabBarController shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationPortrait];
@@ -52,32 +53,8 @@
     [self.window makeKeyAndVisible];
     LoginViewController *loginView = [LoginViewController alloc];
     [self.window.rootViewController presentModalViewController:loginView animated:NO];
+
     
-//    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"];
-//    RKObjectRouter* router = [[RKObjectRouter new] autorelease];
-//    objectManager.router = router;
-//    
-//    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"SampleModel.sqlite"];
-//    
-//    RKManagedObjectMapping* authMapping = [RKManagedObjectMapping mappingForClass:[LCAuth class]];
-//    [authMapping mapAttributes:@"username", @"password", nil];
-//    [objectManager.mappingProvider setMapping:authMapping forKeyPath:@"lcauth"];
-//    
-//    [router routeClass:[LCAuth class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodPOST];
-//    
-//    LCAuth* auth = [LCAuth object];
-//    auth.username = @"bamberad";
-//    auth.password = [self returnMD5Hash:@"password"];
-//    
-//    
-//    [[RKObjectManager sharedManager] postObject:auth mapResponseWith:authMapping delegate:self];  
-    
-//    [RKClient clientWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"];
-//    
-//    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:@"bamberad", @"username",@"passowrd",[self returnMD5Hash:@"password"], nil];
-//    RKRequest *req = [[RKClient sharedClient] post:@"/rest/login" params:params delegate:self];
-//    
-//    NSLog(@"Req: %d\n",req.isPOST);
     
     RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"];
     
@@ -137,7 +114,7 @@
     [manager postObject:args mapResponseWith:argMap delegate:self];
 //    [manager postObject:args delegate:self];
     
-    [manager loadObjectsAtResourcePath:@"/rest/get_tutor_by_id" delegate:self];
+//    [manager loadObjectsAtResourcePath:@"/rest/get_tutor_by_id" delegate:self];
     
     
     return YES;
@@ -213,32 +190,17 @@
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-    NSLog(@"Loaded payload: %@", [response bodyAsString]);
-//    RKJSONParserJSONKit* parser = [RKJSONParserJSONKit new]; 
-//    LCAuth *auth2 = [response parsedBody:NULL]; 
-//    NSLog(@"%@",auth2);
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-    NSLog(@"connection did receive authentication challenge");
+//    NSLog(@"Loaded payload: %@", [response parsedBody:NULL]);
     
-    if([challenge previousFailureCount] == 0) {
-        NSString * username = [[KerberosAccountManager defaultManager] username];
-        NSString * password = [[KerberosAccountManager defaultManager] password];
-        //NSLog(@"creating credentials with user:%@ pass:%@", username, password);
-        NSURLCredential * cred = [[NSURLCredential alloc] initWithUser:username password:password persistence:NSURLCredentialPersistenceNone];
-        [[challenge sender] useCredential:cred forAuthenticationChallenge:challenge];
-    } else {
-        NSLog(@"cancel?");
-        [[challenge sender] cancelAuthenticationChallenge:challenge];
-    }
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    //if it gets here, that means that authentication was successful, therefore the user IS part of the RHIT kerberos database...
-    //so we can probably just set some sort of boolean value
-    //...more testing necessary
-    NSLog(@"Login successful");
+    sampleTutor = [Tutor new];
+    
+    sampleTutor.name = [[response parsedBody:NULL] objectForKey:@"name"];
+    sampleTutor.year = [[response parsedBody:NULL] objectForKey:@"year"];
+    sampleTutor.email = [[response parsedBody:NULL] objectForKey:@"email"];
+    sampleTutor.major = [[response parsedBody:NULL] objectForKey:@"major"];
+    
+    ((FirstViewController *)[self.tabBarController.viewControllers objectAtIndex:0]).sampleTutor = sampleTutor;
+    
 }
 
 

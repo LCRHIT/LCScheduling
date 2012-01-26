@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  TutorSearchViewController.h
 //  LCSample
 //
 //  Created by Ian Cundiff on 11/1/11.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TutorProfileViewController.h"
 
-@interface SecondViewController : UIViewController
+@interface TutorSearchViewController : UIViewController
 
 
 -(IBAction)submitPressed:(id)sender;

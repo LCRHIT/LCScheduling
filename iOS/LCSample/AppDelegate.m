@@ -8,25 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "FirstViewController.h"
-
-#import "SecondViewController.h"
-
-#import "ThirdViewController.h"
-
-#import "FourthViewController.h"
-
-#import "LoginViewController.h"
-
-#import "LCArgs.h"
-
-//#import <RestKit/RestKit.h>
-
-#import <RestKit/Support/JSON/JSONKit/RKJSONParserJSONKit.h>
-
-#import "LCAuth.h"
-#import "Auth_Result.h"
-#import "KerberosAccountManager.h"
 
 @implementation AppDelegate
 
@@ -40,83 +21,23 @@
     
     //context = [[UIApplication delegate] managedObjectContext];
     
+    //TODO: only populate the tab bar controller if the login screen returns true
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    FirstViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-    SecondViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
-    ThirdViewController *viewController3 = [[ThirdViewController alloc] initWithNibName:@"ThirdViewController" bundle:nil];
-    FourthViewController *viewController4 = [[FourthViewController alloc] initWithNibName:@"FourthViewController" bundle:nil];
+    HomeViewController *viewController1 = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+    TutorSearchViewController *viewController2 = [[TutorSearchViewController alloc] initWithNibName:@"TutorSearchViewController" bundle:nil];
+    ScheduleViewController *viewController3 = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
+    ContactViewController *viewController4 = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, nil];
     [self.tabBarController shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationPortrait];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     LoginViewController *loginView = [LoginViewController alloc];
     [self.window.rootViewController presentModalViewController:loginView animated:NO];
+    
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, nil];
+    [self.window.rootViewController.view setNeedsDisplay];
 
-    
-    
-    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"];
-    
-    
-    RKObjectMapping* authSerializationMapping = [RKObjectMapping mappingForClass:[LCAuth class] ];
-    [authSerializationMapping mapAttributes:@"username", @"password", nil];
-    
-    RKObjectMapping* argSerializationMapping = [RKObjectMapping mappingForClass:[LCArgs class] ];
-    [argSerializationMapping mapAttributes:@"LCTutorID", nil];
-    
-    [[RKParserRegistry sharedRegistry] setParserClass:[RKJSONParserJSONKit class] forMIMEType:@"text/html"];
-    
-    // Now register the mapping with the provider
-    [manager.mappingProvider setSerializationMapping:authSerializationMapping forClass:[LCAuth class] ];
-    [manager.mappingProvider setSerializationMapping:argSerializationMapping forClass:[LCArgs class] ];
-    [manager setSerializationMIMEType:RKMIMETypeJSON]; 
-    
-    
-    RKObjectRouter* router = [[RKObjectRouter new] autorelease];
-//    [router routeClass:[LCAuth class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodPOST];
-    
-    [router routeClass:[Auth_Result class] toResourcePath:@"/rest/login" forMethod:RKRequestMethodGET];  
-    
-    [router routeClass:[LCArgs class] toResourcePath:@"/rest/get_tutor_by_id" forMethod:RKRequestMethodPOST];  
-    
-    manager.router = router;
-    
-    RKObjectMapping* authMapping = [RKObjectMapping mappingForClass:[LCAuth class]];
-    [authMapping mapKeyPath:@"username" toAttribute:@"username"];
-    [authMapping mapKeyPath:@"password" toAttribute:@"password"];
-    [authMapping mapKeyPath:@"result" toAttribute:@"LCAuthResult"];
-    [authMapping mapKeyPath:@"token" toAttribute:@"LCAuthToken"];
-    
-    [manager.mappingProvider setMapping:authMapping forKeyPath:@"login"];
-    
-    RKObjectMapping* resultMapping = [RKObjectMapping mappingForClass:[Auth_Result class]];
-    [resultMapping mapKeyPath:@"result" toAttribute:@"LCAuthResult"];
-    [resultMapping mapKeyPath:@"token" toAttribute:@"LCAuthToken"];
-    
-    [manager.mappingProvider setMapping:resultMapping forKeyPath:@"auth_result"];
-    
-    RKObjectMapping *argMap = [RKObjectMapping mappingForClass:[LCArgs class]];
-    [argMap mapKeyPath:@"TutorID" toAttribute:@"TutorID"];
-    
-    [manager.mappingProvider setMapping:argMap forKeyPath:@"get_tutor_by_id"];
-    
-    LCAuth *auth = [LCAuth new];
-    auth.username = @"bamberad";
-    auth.password = [self returnMD5Hash:@"password"];
-//    Auth_Result *result = [Auth_Result new];
-//    RKObjectMapping* authMap = [manager.mappingProvider objectMappingForClass:[Auth_Result class] ];
-//    [manager postObject:auth mapResponseWith:authMapping delegate:self];
-    //[manager getObject:result mapResponseWith:authMap delegate:self];
-    
-    LCArgs *args = [LCArgs new];
-    args.LCTutorID = @"1";
-    [manager postObject:args mapResponseWith:argMap delegate:self];
-//    [manager postObject:args delegate:self];
-    
-//    [manager loadObjectsAtResourcePath:@"/rest/get_tutor_by_id" delegate:self];
-    
-    
     return YES;
 }
 
@@ -159,49 +80,7 @@
      */
 }
 
-//generate md5 hash from string
--(NSString *) returnMD5Hash:(NSString*)concat {
-    const char *concat_str = [concat UTF8String];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(concat_str, strlen(concat_str), result);
-    NSMutableString *hash = [NSMutableString string];
-    for (int i = 0; i < 16; i++)
-        [hash appendFormat:@"%02X", result[i]];
-    return [hash lowercaseString];
-}
 
-- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-    NSLog(@"error: %@",error);
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {
-//    NSLog(@"loaded objects %@",((Auth_Result*)[objects objectAtIndex:1]).token);
-//    NSLog(@"objects: %@",objects);
-}
-
-//what made the call
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object {
-//    NSLog(@"Auth_Result.token = %@",((LCAuth*)object).username);
-//    NSLog(@"object: %@",((LCAuth*)object).username);
-}
-
-- (void)objectLoaderDidLoadUnexpectedResponse:(RKObjectLoader *)objectLoader {
-    NSLog(@"unexpected response...");
-}
-
-- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-//    NSLog(@"Loaded payload: %@", [response parsedBody:NULL]);
-    
-    sampleTutor = [Tutor new];
-    
-    sampleTutor.name = [[response parsedBody:NULL] objectForKey:@"name"];
-    sampleTutor.year = [[response parsedBody:NULL] objectForKey:@"year"];
-    sampleTutor.email = [[response parsedBody:NULL] objectForKey:@"email"];
-    sampleTutor.major = [[response parsedBody:NULL] objectForKey:@"major"];
-    
-    ((FirstViewController *)[self.tabBarController.viewControllers objectAtIndex:0]).sampleTutor = sampleTutor;
-    
-}
 
 
 /*

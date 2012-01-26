@@ -1,22 +1,22 @@
 //
-//  SecondViewController.m
+//  HomeViewController.m
 //  LCSample
 //
 //  Created by Ian Cundiff on 11/1/11.
 //  Copyright (c) 2011 Rose-Hulman. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "HomeViewController.h"
 
-#import "TutorProfileViewController.h"
+@implementation HomeViewController
 
-@implementation SecondViewController
+@synthesize sampleTutor;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Tutor Search", @"Tutor Search");
+        self.title = NSLocalizedString(@"Home", @"Home");
     }
     return self;
 }
@@ -68,12 +68,21 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
--(IBAction)submitPressed:(id)sender {
-    UINavigationController *otherNavController = (UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:1];
+- (IBAction)tutorButtonPressed:(id)sender {
+    NSString *tutorInfo = [NSString stringWithFormat:@"Name: %@\nYear: %@\nEmail: %@\nMajor:%@",sampleTutor.name,sampleTutor.year,sampleTutor.email,sampleTutor.major];
     
-//    TutorProfileViewController *tutor = [[TutorProfileViewController alloc] init];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Here's Some Tutor Information"
+                                                      message:tutorInfo
+                                                     delegate:nil
+                                            cancelButtonTitle:@"Thanks!"
+                                            otherButtonTitles:nil];
     
-    [otherNavController pushViewController:[TutorProfileViewController alloc] animated:NO];
+    [message show];
+    
 }
+
+
+
+
 
 @end

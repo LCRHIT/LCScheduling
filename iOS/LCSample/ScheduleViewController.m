@@ -1,20 +1,20 @@
 //
-//  FourthViewController.m
+//  ScheduleViewController.m
 //  LCSample
 //
 //  Created by Ian Cundiff on 11/1/11.
 //  Copyright (c) 2011 Rose-Hulman. All rights reserved.
 //
 
-#import "FourthViewController.h"
+#import "ScheduleViewController.h"
 
-@implementation FourthViewController
+@implementation ScheduleViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Contact", @"Contact");
+        self.title = NSLocalizedString(@"Schedule", @"Schedule");
     }
     return self;
 }
@@ -45,7 +45,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
 @end

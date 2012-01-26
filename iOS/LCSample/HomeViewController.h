@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  HomeViewController.h
 //  LCSample
 //
 //  Created by Ian Cundiff on 11/1/11.
@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CommonCrypto/CommonDigest.h>
 #import <RestKit/RestKit.h>
 #import "LCAuth.h"
 #import "Tutor.h"
 
-@interface FirstViewController : UIViewController <UIAlertViewDelegate>
+@interface HomeViewController : UIViewController <UIAlertViewDelegate>
 
 @property(strong, nonatomic) Tutor *sampleTutor;
 

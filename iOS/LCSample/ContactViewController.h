@@ -1,5 +1,5 @@
 //
-//  FourthViewController.h
+//  ContactViewController.h
 //  LCSample
 //
 //  Created by Ian Cundiff on 11/1/11.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FourthViewController : UIViewController
+@interface ContactViewController : UIViewController
 
 @end

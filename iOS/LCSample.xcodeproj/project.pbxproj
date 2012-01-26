@@ -10,12 +10,10 @@
 		3C0DD7F814BFE329002DFFE4 /* SampleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DD7F614BFE328002DFFE4 /* SampleModel.xcdatamodeld */; };
 		3C4CA2C514BF9FD200EE78AA /* Timeslot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2C414BF9FD200EE78AA /* Timeslot.m */; };
 		3C4CA2C814BFA01000EE78AA /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2C714BFA01000EE78AA /* Course.m */; };
-		3C4CA2CB14BFA02A00EE78AA /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2CA14BFA02A00EE78AA /* Document.m */; };
 		3C4CA2CE14BFA04000EE78AA /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2CD14BFA04000EE78AA /* Student.m */; };
 		3C4CA2D414BFA07800EE78AA /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2D314BFA07800EE78AA /* Schedule.m */; };
 		3C4CA2D714BFA08B00EE78AA /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2D614BFA08B00EE78AA /* ContactController.m */; };
 		3C4CA2DA14BFA09900EE78AA /* Tutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2D914BFA09900EE78AA /* Tutor.m */; };
-		3C4CA2DD14BFA0D700EE78AA /* DocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2DC14BFA0D700EE78AA /* DocumentController.m */; };
 		3C4CA2EB14BFB70D00EE78AA /* LCAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */; };
 		3C7B103614C88AD9003FBF43 /* KerberosAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B103514C88AD9003FBF43 /* KerberosAccountManager.m */; };
 		3C7B103914C88B14003FBF43 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B103814C88B14003FBF43 /* KeychainItemWrapper.m */; };
@@ -23,23 +21,24 @@
 		3C7B103E14C8DB05003FBF43 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C7B103C14C8DB05003FBF43 /* LoginViewController.xib */; };
 		3C7B104114C8E5A9003FBF43 /* LCArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B104014C8E5A8003FBF43 /* LCArgs.m */; };
 		3CC0CE3214C0939C0027F535 /* Auth_Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0CE3114C0939C0027F535 /* Auth_Result.m */; };
+		3CE5582914CF64AD004F9428 /* DBInteract.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5582814CF64AD004F9428 /* DBInteract.m */; };
 		430EB9C21460B2150097DB81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C11460B2150097DB81 /* UIKit.framework */; };
 		430EB9C41460B2150097DB81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C31460B2150097DB81 /* Foundation.framework */; };
 		430EB9C61460B2150097DB81 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C51460B2150097DB81 /* CoreGraphics.framework */; };
 		430EB9CC1460B2150097DB81 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9CA1460B2150097DB81 /* InfoPlist.strings */; };
 		430EB9CE1460B2150097DB81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9CD1460B2150097DB81 /* main.m */; };
 		430EB9D21460B2150097DB81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9D11460B2150097DB81 /* AppDelegate.m */; };
-		430EB9D51460B2150097DB81 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9D41460B2150097DB81 /* FirstViewController.m */; };
+		430EB9D51460B2150097DB81 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9D41460B2150097DB81 /* HomeViewController.m */; };
 		430EB9D71460B2150097DB81 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9D61460B2150097DB81 /* first.png */; };
 		430EB9D91460B2150097DB81 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9D81460B2150097DB81 /* first@2x.png */; };
-		430EB9DC1460B2150097DB81 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9DB1460B2150097DB81 /* SecondViewController.m */; };
+		430EB9DC1460B2150097DB81 /* TutorSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9DB1460B2150097DB81 /* TutorSearchViewController.m */; };
 		430EB9DE1460B2150097DB81 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9DD1460B2150097DB81 /* second.png */; };
 		430EB9E01460B2150097DB81 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9DF1460B2150097DB81 /* second@2x.png */; };
 		430EB9E31460B2150097DB81 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9E11460B2150097DB81 /* FirstViewController.xib */; };
 		430EB9E61460B2150097DB81 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9E41460B2150097DB81 /* SecondViewController.xib */; };
-		430EB9EF1460B84B0097DB81 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9ED1460B84B0097DB81 /* ThirdViewController.m */; };
+		430EB9EF1460B84B0097DB81 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9ED1460B84B0097DB81 /* ScheduleViewController.m */; };
 		430EB9F01460B84B0097DB81 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9EE1460B84B0097DB81 /* ThirdViewController.xib */; };
-		430EB9F41460B85C0097DB81 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9F21460B85C0097DB81 /* FourthViewController.m */; };
+		430EB9F41460B85C0097DB81 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9F21460B85C0097DB81 /* ContactViewController.m */; };
 		430EB9F51460B85C0097DB81 /* FourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9F31460B85C0097DB81 /* FourthViewController.xib */; };
 		430EB9F71460BAB30097DB81 /* logo_rhit.png in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9F61460BAB30097DB81 /* logo_rhit.png */; };
 		430EB9FB1460BDC90097DB81 /* TutorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9F91460BDC80097DB81 /* TutorProfileViewController.m */; };
@@ -175,8 +174,6 @@
 		3C4CA2C414BF9FD200EE78AA /* Timeslot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeslot.m; sourceTree = "<group>"; };
 		3C4CA2C614BFA01000EE78AA /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		3C4CA2C714BFA01000EE78AA /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
-		3C4CA2C914BFA02A00EE78AA /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
-		3C4CA2CA14BFA02A00EE78AA /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		3C4CA2CC14BFA04000EE78AA /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		3C4CA2CD14BFA04000EE78AA /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		3C4CA2D214BFA07800EE78AA /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
@@ -185,8 +182,6 @@
 		3C4CA2D614BFA08B00EE78AA /* ContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
 		3C4CA2D814BFA09900EE78AA /* Tutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tutor.h; sourceTree = "<group>"; };
 		3C4CA2D914BFA09900EE78AA /* Tutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tutor.m; sourceTree = "<group>"; };
-		3C4CA2DB14BFA0D700EE78AA /* DocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentController.h; sourceTree = "<group>"; };
-		3C4CA2DC14BFA0D700EE78AA /* DocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentController.m; sourceTree = "<group>"; };
 		3C4CA2E914BFB70C00EE78AA /* LCAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCAuth.h; path = LCSample/LCAuth.h; sourceTree = "<group>"; };
 		3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCAuth.m; path = LCSample/LCAuth.m; sourceTree = "<group>"; };
 		3C7B103414C88AD9003FBF43 /* KerberosAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KerberosAccountManager.h; sourceTree = "<group>"; };
@@ -200,6 +195,8 @@
 		3C7B104014C8E5A8003FBF43 /* LCArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCArgs.m; sourceTree = "<group>"; };
 		3CC0CE3014C0939C0027F535 /* Auth_Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Auth_Result.h; path = LCSample/Auth_Result.h; sourceTree = "<group>"; };
 		3CC0CE3114C0939C0027F535 /* Auth_Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Auth_Result.m; path = LCSample/Auth_Result.m; sourceTree = "<group>"; };
+		3CE5582714CF64AD004F9428 /* DBInteract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBInteract.h; sourceTree = "<group>"; };
+		3CE5582814CF64AD004F9428 /* DBInteract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBInteract.m; sourceTree = "<group>"; };
 		430EB9BD1460B2150097DB81 /* LCSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		430EB9C11460B2150097DB81 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		430EB9C31460B2150097DB81 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -210,21 +207,21 @@
 		430EB9CF1460B2150097DB81 /* LCSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LCSample-Prefix.pch"; sourceTree = "<group>"; };
 		430EB9D01460B2150097DB81 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		430EB9D11460B2150097DB81 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; wrapsLines = 0; };
-		430EB9D31460B2150097DB81 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		430EB9D41460B2150097DB81 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		430EB9D31460B2150097DB81 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		430EB9D41460B2150097DB81 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		430EB9D61460B2150097DB81 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		430EB9D81460B2150097DB81 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		430EB9DA1460B2150097DB81 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		430EB9DB1460B2150097DB81 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		430EB9DA1460B2150097DB81 /* TutorSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TutorSearchViewController.h; sourceTree = "<group>"; };
+		430EB9DB1460B2150097DB81 /* TutorSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TutorSearchViewController.m; sourceTree = "<group>"; };
 		430EB9DD1460B2150097DB81 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		430EB9DF1460B2150097DB81 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		430EB9E21460B2150097DB81 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		430EB9E51460B2150097DB81 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
-		430EB9EC1460B84B0097DB81 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
-		430EB9ED1460B84B0097DB81 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		430EB9EC1460B84B0097DB81 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		430EB9ED1460B84B0097DB81 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		430EB9EE1460B84B0097DB81 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
-		430EB9F11460B85C0097DB81 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
-		430EB9F21460B85C0097DB81 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
+		430EB9F11460B85C0097DB81 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		430EB9F21460B85C0097DB81 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		430EB9F31460B85C0097DB81 /* FourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
 		430EB9F61460BAB30097DB81 /* logo_rhit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_rhit.png; sourceTree = "<group>"; };
 		430EB9F81460BDC80097DB81 /* TutorProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorProfileViewController.h; sourceTree = "<group>"; };
@@ -272,8 +269,6 @@
 		3C7B102C14C86E64003FBF43 /* Domain Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3C4CA2DB14BFA0D700EE78AA /* DocumentController.h */,
-				3C4CA2DC14BFA0D700EE78AA /* DocumentController.m */,
 				3C4CA2D814BFA09900EE78AA /* Tutor.h */,
 				3C4CA2D914BFA09900EE78AA /* Tutor.m */,
 				3C4CA2D514BFA08B00EE78AA /* ContactController.h */,
@@ -284,8 +279,6 @@
 				3C4CA2C414BF9FD200EE78AA /* Timeslot.m */,
 				3C4CA2CC14BFA04000EE78AA /* Student.h */,
 				3C4CA2CD14BFA04000EE78AA /* Student.m */,
-				3C4CA2C914BFA02A00EE78AA /* Document.h */,
-				3C4CA2CA14BFA02A00EE78AA /* Document.m */,
 				3C4CA2C614BFA01000EE78AA /* Course.h */,
 				3C4CA2C714BFA01000EE78AA /* Course.m */,
 			);
@@ -308,18 +301,18 @@
 		3C7B102E14C86EBF003FBF43 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				430EB9D31460B2150097DB81 /* FirstViewController.h */,
-				430EB9D41460B2150097DB81 /* FirstViewController.m */,
-				430EB9DA1460B2150097DB81 /* SecondViewController.h */,
-				430EB9DB1460B2150097DB81 /* SecondViewController.m */,
-				430EB9EC1460B84B0097DB81 /* ThirdViewController.h */,
-				430EB9ED1460B84B0097DB81 /* ThirdViewController.m */,
+				430EB9D31460B2150097DB81 /* HomeViewController.h */,
+				430EB9D41460B2150097DB81 /* HomeViewController.m */,
+				430EB9DA1460B2150097DB81 /* TutorSearchViewController.h */,
+				430EB9DB1460B2150097DB81 /* TutorSearchViewController.m */,
+				430EB9EC1460B84B0097DB81 /* ScheduleViewController.h */,
+				430EB9ED1460B84B0097DB81 /* ScheduleViewController.m */,
 				430EB9F81460BDC80097DB81 /* TutorProfileViewController.h */,
 				430EB9F91460BDC80097DB81 /* TutorProfileViewController.m */,
 				430EB9FF1460BF6E0097DB81 /* TutorScheduleViewController.h */,
 				430EBA001460BF6E0097DB81 /* TutorScheduleViewController.m */,
-				430EB9F11460B85C0097DB81 /* FourthViewController.h */,
-				430EB9F21460B85C0097DB81 /* FourthViewController.m */,
+				430EB9F11460B85C0097DB81 /* ContactViewController.h */,
+				430EB9F21460B85C0097DB81 /* ContactViewController.m */,
 				3C7B103A14C8DB05003FBF43 /* LoginViewController.h */,
 				3C7B103B14C8DB05003FBF43 /* LoginViewController.m */,
 			);
@@ -349,10 +342,10 @@
 				3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */,
 				3CC0CE3014C0939C0027F535 /* Auth_Result.h */,
 				3CC0CE3114C0939C0027F535 /* Auth_Result.m */,
-				894E4FF614BF918700301063 /* RestKit.xcodeproj */,
 				430EB9C71460B2150097DB81 /* LCSample */,
 				430EB9C01460B2150097DB81 /* Frameworks */,
 				430EB9BE1460B2150097DB81 /* Products */,
+				894E4FF614BF918700301063 /* RestKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -390,6 +383,8 @@
 				430EB9C81460B2150097DB81 /* Supporting Files */,
 				430EB9D01460B2150097DB81 /* AppDelegate.h */,
 				430EB9D11460B2150097DB81 /* AppDelegate.m */,
+				3CE5582714CF64AD004F9428 /* DBInteract.h */,
+				3CE5582814CF64AD004F9428 /* DBInteract.m */,
 				3C7B103414C88AD9003FBF43 /* KerberosAccountManager.h */,
 				3C7B103514C88AD9003FBF43 /* KerberosAccountManager.m */,
 				3C7B103714C88B14003FBF43 /* KeychainItemWrapper.h */,
@@ -596,20 +591,18 @@
 			files = (
 				430EB9CE1460B2150097DB81 /* main.m in Sources */,
 				430EB9D21460B2150097DB81 /* AppDelegate.m in Sources */,
-				430EB9D51460B2150097DB81 /* FirstViewController.m in Sources */,
-				430EB9DC1460B2150097DB81 /* SecondViewController.m in Sources */,
-				430EB9EF1460B84B0097DB81 /* ThirdViewController.m in Sources */,
-				430EB9F41460B85C0097DB81 /* FourthViewController.m in Sources */,
+				430EB9D51460B2150097DB81 /* HomeViewController.m in Sources */,
+				430EB9DC1460B2150097DB81 /* TutorSearchViewController.m in Sources */,
+				430EB9EF1460B84B0097DB81 /* ScheduleViewController.m in Sources */,
+				430EB9F41460B85C0097DB81 /* ContactViewController.m in Sources */,
 				430EB9FB1460BDC90097DB81 /* TutorProfileViewController.m in Sources */,
 				430EBA021460BF6E0097DB81 /* TutorScheduleViewController.m in Sources */,
 				3C4CA2C514BF9FD200EE78AA /* Timeslot.m in Sources */,
 				3C4CA2C814BFA01000EE78AA /* Course.m in Sources */,
-				3C4CA2CB14BFA02A00EE78AA /* Document.m in Sources */,
 				3C4CA2CE14BFA04000EE78AA /* Student.m in Sources */,
 				3C4CA2D414BFA07800EE78AA /* Schedule.m in Sources */,
 				3C4CA2D714BFA08B00EE78AA /* ContactController.m in Sources */,
 				3C4CA2DA14BFA09900EE78AA /* Tutor.m in Sources */,
-				3C4CA2DD14BFA0D700EE78AA /* DocumentController.m in Sources */,
 				3C4CA2EB14BFB70D00EE78AA /* LCAuth.m in Sources */,
 				3C0DD7F814BFE329002DFFE4 /* SampleModel.xcdatamodeld in Sources */,
 				3CC0CE3214C0939C0027F535 /* Auth_Result.m in Sources */,
@@ -617,6 +610,7 @@
 				3C7B103914C88B14003FBF43 /* KeychainItemWrapper.m in Sources */,
 				3C7B103D14C8DB05003FBF43 /* LoginViewController.m in Sources */,
 				3C7B104114C8E5A9003FBF43 /* LCArgs.m in Sources */,
+				3CE5582914CF64AD004F9428 /* DBInteract.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

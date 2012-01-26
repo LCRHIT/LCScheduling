@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.h
+//  ScheduleViewController.h
 //  LCSample
 //
 //  Created by Ian Cundiff on 11/1/11.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThirdViewController : UIViewController
+@interface ScheduleViewController: UIViewController
 
 @end

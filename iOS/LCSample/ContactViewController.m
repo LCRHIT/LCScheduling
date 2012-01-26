@@ -1,20 +1,20 @@
 //
-//  ThirdViewController.m
+//  ContactViewController.m
 //  LCSample
 //
 //  Created by Ian Cundiff on 11/1/11.
 //  Copyright (c) 2011 Rose-Hulman. All rights reserved.
 //
 
-#import "ThirdViewController.h"
+#import "ContactViewController.h"
 
-@implementation ThirdViewController
+@implementation ContactViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Schedule", @"Schedule");
+        self.title = NSLocalizedString(@"Contact", @"Contact");
     }
     return self;
 }
@@ -45,7 +45,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end

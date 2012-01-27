@@ -202,14 +202,14 @@
 		3CC0CE3114C0939C0027F535 /* Auth_Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Auth_Result.m; path = LCSample/Auth_Result.m; sourceTree = "<group>"; };
 		3CE5582714CF64AD004F9428 /* DBInteract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBInteract.h; sourceTree = "<group>"; };
 		3CE5582814CF64AD004F9428 /* DBInteract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBInteract.m; sourceTree = "<group>"; };
-		430EB9BD1460B2150097DB81 /* LCSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		430EB9BD1460B2150097DB81 /* LearningCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		430EB9C11460B2150097DB81 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		430EB9C31460B2150097DB81 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		430EB9C51460B2150097DB81 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		430EB9C91460B2150097DB81 /* LCSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LCSample-Info.plist"; sourceTree = "<group>"; };
+		430EB9C91460B2150097DB81 /* LearningCenter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LearningCenter-Info.plist"; sourceTree = "<group>"; };
 		430EB9CB1460B2150097DB81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		430EB9CD1460B2150097DB81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		430EB9CF1460B2150097DB81 /* LCSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LCSample-Prefix.pch"; sourceTree = "<group>"; };
+		430EB9CF1460B2150097DB81 /* LearningCenter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LearningCenter-Prefix.pch"; sourceTree = "<group>"; };
 		430EB9D01460B2150097DB81 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		430EB9D11460B2150097DB81 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; wrapsLines = 0; };
 		430EB9D31460B2150097DB81 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 		430EB9BE1460B2150097DB81 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				430EB9BD1460B2150097DB81 /* LCSample.app */,
+				430EB9BD1460B2150097DB81 /* LearningCenter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -405,10 +405,10 @@
 			isa = PBXGroup;
 			children = (
 				3C0DD7F614BFE328002DFFE4 /* SampleModel.xcdatamodeld */,
-				430EB9C91460B2150097DB81 /* LCSample-Info.plist */,
+				430EB9C91460B2150097DB81 /* LearningCenter-Info.plist */,
 				430EB9CA1460B2150097DB81 /* InfoPlist.strings */,
 				430EB9CD1460B2150097DB81 /* main.m */,
-				430EB9CF1460B2150097DB81 /* LCSample-Prefix.pch */,
+				430EB9CF1460B2150097DB81 /* LearningCenter-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -434,9 +434,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		430EB9BC1460B2150097DB81 /* LCSample */ = {
+		430EB9BC1460B2150097DB81 /* LearningCenter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 430EB9E91460B2150097DB81 /* Build configuration list for PBXNativeTarget "LCSample" */;
+			buildConfigurationList = 430EB9E91460B2150097DB81 /* Build configuration list for PBXNativeTarget "LearningCenter" */;
 			buildPhases = (
 				430EB9B91460B2150097DB81 /* Sources */,
 				430EB9BA1460B2150097DB81 /* Frameworks */,
@@ -450,9 +450,9 @@
 				894E815D14BF976700301063 /* PBXTargetDependency */,
 				894E502214BF93AB00301063 /* PBXTargetDependency */,
 			);
-			name = LCSample;
+			name = LearningCenter;
 			productName = LCSample;
-			productReference = 430EB9BD1460B2150097DB81 /* LCSample.app */;
+			productReference = 430EB9BD1460B2150097DB81 /* LearningCenter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -464,7 +464,7 @@
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Rose-Hulman";
 			};
-			buildConfigurationList = 430EB9B71460B2140097DB81 /* Build configuration list for PBXProject "LCSample" */;
+			buildConfigurationList = 430EB9B71460B2140097DB81 /* Build configuration list for PBXProject "LearningCenter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -482,7 +482,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				430EB9BC1460B2150097DB81 /* LCSample */,
+				430EB9BC1460B2150097DB81 /* LearningCenter */,
 			);
 		};
 /* End PBXProject section */
@@ -731,13 +731,13 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LCSample/LCSample-Prefix.pch";
-				INFOPLIST_FILE = "LCSample/LCSample-Info.plist";
+				GCC_PREFIX_HEADER = "LCSample/LearningCenter-Prefix.pch";
+				INFOPLIST_FILE = "LCSample/LearningCenter-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LearningCenter;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -747,13 +747,13 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LCSample/LCSample-Prefix.pch";
-				INFOPLIST_FILE = "LCSample/LCSample-Info.plist";
+				GCC_PREFIX_HEADER = "LCSample/LearningCenter-Prefix.pch";
+				INFOPLIST_FILE = "LCSample/LearningCenter-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LearningCenter;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -761,7 +761,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		430EB9B71460B2140097DB81 /* Build configuration list for PBXProject "LCSample" */ = {
+		430EB9B71460B2140097DB81 /* Build configuration list for PBXProject "LearningCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				430EB9E71460B2150097DB81 /* Debug */,
@@ -770,7 +770,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		430EB9E91460B2150097DB81 /* Build configuration list for PBXNativeTarget "LCSample" */ = {
+		430EB9E91460B2150097DB81 /* Build configuration list for PBXNativeTarget "LearningCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				430EB9EA1460B2150097DB81 /* Debug */,

@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "430EB9BC1460B2150097DB81"
-               BuildableName = "LCSample.app"
-               BlueprintName = "LCSample"
-               ReferencedContainer = "container:LCSample.xcodeproj">
+               BuildableName = "LearningCenter.app"
+               BlueprintName = "LearningCenter"
+               ReferencedContainer = "container:LearningCenter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,9 +32,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "430EB9BC1460B2150097DB81"
-            BuildableName = "LCSample.app"
-            BlueprintName = "LCSample"
-            ReferencedContainer = "container:LCSample.xcodeproj">
+            BuildableName = "LearningCenter.app"
+            BlueprintName = "LearningCenter"
+            ReferencedContainer = "container:LearningCenter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -50,9 +50,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "430EB9BC1460B2150097DB81"
-            BuildableName = "LCSample.app"
-            BlueprintName = "LCSample"
-            ReferencedContainer = "container:LCSample.xcodeproj">
+            BuildableName = "LearningCenter.app"
+            BlueprintName = "LearningCenter"
+            ReferencedContainer = "container:LearningCenter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "430EB9BC1460B2150097DB81"
-            BuildableName = "LCSample.app"
-            BlueprintName = "LCSample"
-            ReferencedContainer = "container:LCSample.xcodeproj">
+            BuildableName = "LearningCenter.app"
+            BlueprintName = "LearningCenter"
+            ReferencedContainer = "container:LearningCenter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

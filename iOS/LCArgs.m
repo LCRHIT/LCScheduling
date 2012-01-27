@@ -10,6 +10,7 @@
 
 @implementation LCArgs
 
-@synthesize LCTutorID;
+@synthesize LCTutorName;
+
 
 @end

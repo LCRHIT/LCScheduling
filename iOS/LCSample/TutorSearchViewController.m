@@ -11,6 +11,8 @@
 
 @implementation TutorSearchViewController
 
+@synthesize nameField, courseField, dateField;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -67,12 +69,23 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
--(IBAction)submitPressed:(id)sender {
+-(IBAction)submitPressed:(id)sender 
+{
     UINavigationController *otherNavController = (UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:1];
     
-//    TutorProfileViewController *tutor = [[TutorProfileViewController alloc] init];
+    NSMutableArray *tutors = [[DBInteract sharedInstance] getTutorsWithName:nameField.text course:courseField.text andDateAvailable:dateField.text];
     
-    [otherNavController pushViewController:[TutorProfileViewController alloc] animated:NO];
+//    TutorSearchResultsViewController *results = [[TutorSearchResultsViewController alloc] init];
+//    results.possibleTutors = tutors;
+    
+    //[otherNavController pushViewController:results animated:NO];
 }
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"keyboard down");
+        [textField resignFirstResponder];
+        return YES;
+}
+
 
 @end

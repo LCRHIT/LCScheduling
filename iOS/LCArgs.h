@@ -10,6 +10,7 @@
 
 @interface LCArgs : NSObject
 
-@property (nonatomic, retain) NSString* LCTutorID;
+//@property (nonatomic, retain) NSString* LCTutorID;
+@property (nonatomic, retain) NSString* LCTutorName;
 
 @end

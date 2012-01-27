@@ -33,7 +33,7 @@
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     LoginViewController *loginView = [LoginViewController alloc];
-    [self.window.rootViewController presentModalViewController:loginView animated:NO];
+    //[self.window.rootViewController presentModalViewController:loginView animated:NO];
     
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, nil];
     [self.window.rootViewController.view setNeedsDisplay];

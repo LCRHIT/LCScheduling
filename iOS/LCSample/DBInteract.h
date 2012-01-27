@@ -15,13 +15,16 @@
 #import "Tutor.h"
 #import "Schedule.h"
 
-@interface DBInteract : NSObject <RKObjectLoaderDelegate>
+@interface DBInteract : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>
 
 @property(strong, nonatomic) NSMutableArray *possibleTutors;
+@property(strong, nonatomic) Schedule *schedule;
 
 -(NSMutableArray*)getTutorsWithName:(NSString*)name course:(NSString*)course andDateAvailable:(NSString*)date; //TODO: consider changing this to an NSDate...
 
 -(Schedule*)getScheduleForDate:(NSString*)date; //same concern as previous method
+
++ (id)sharedInstance;
 
 
 @end

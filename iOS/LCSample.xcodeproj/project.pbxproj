@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3C0DD7F814BFE329002DFFE4 /* SampleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DD7F614BFE328002DFFE4 /* SampleModel.xcdatamodeld */; };
+		3C4289BE14D2263F00AFB60E /* TutorSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */; };
+		3C4289BF14D2263F00AFB60E /* TutorSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4289BD14D2263F00AFB60E /* TutorSearchResultsViewController.xib */; };
 		3C4CA2C514BF9FD200EE78AA /* Timeslot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2C414BF9FD200EE78AA /* Timeslot.m */; };
 		3C4CA2C814BFA01000EE78AA /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2C714BFA01000EE78AA /* Course.m */; };
 		3C4CA2CE14BFA04000EE78AA /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2CD14BFA04000EE78AA /* Student.m */; };
@@ -34,12 +36,12 @@
 		430EB9DC1460B2150097DB81 /* TutorSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9DB1460B2150097DB81 /* TutorSearchViewController.m */; };
 		430EB9DE1460B2150097DB81 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9DD1460B2150097DB81 /* second.png */; };
 		430EB9E01460B2150097DB81 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9DF1460B2150097DB81 /* second@2x.png */; };
-		430EB9E31460B2150097DB81 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9E11460B2150097DB81 /* FirstViewController.xib */; };
-		430EB9E61460B2150097DB81 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9E41460B2150097DB81 /* SecondViewController.xib */; };
+		430EB9E31460B2150097DB81 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9E11460B2150097DB81 /* HomeViewController.xib */; };
+		430EB9E61460B2150097DB81 /* TutorSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9E41460B2150097DB81 /* TutorSearchViewController.xib */; };
 		430EB9EF1460B84B0097DB81 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9ED1460B84B0097DB81 /* ScheduleViewController.m */; };
-		430EB9F01460B84B0097DB81 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9EE1460B84B0097DB81 /* ThirdViewController.xib */; };
+		430EB9F01460B84B0097DB81 /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9EE1460B84B0097DB81 /* ScheduleViewController.xib */; };
 		430EB9F41460B85C0097DB81 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9F21460B85C0097DB81 /* ContactViewController.m */; };
-		430EB9F51460B85C0097DB81 /* FourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9F31460B85C0097DB81 /* FourthViewController.xib */; };
+		430EB9F51460B85C0097DB81 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9F31460B85C0097DB81 /* ContactViewController.xib */; };
 		430EB9F71460BAB30097DB81 /* logo_rhit.png in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9F61460BAB30097DB81 /* logo_rhit.png */; };
 		430EB9FB1460BDC90097DB81 /* TutorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 430EB9F91460BDC80097DB81 /* TutorProfileViewController.m */; };
 		430EB9FC1460BDC90097DB81 /* TutorProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430EB9FA1460BDC80097DB81 /* TutorProfileViewController.xib */; };
@@ -170,6 +172,9 @@
 
 /* Begin PBXFileReference section */
 		3C0DD7F714BFE328002DFFE4 /* SampleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModel.xcdatamodel; sourceTree = "<group>"; };
+		3C4289BB14D2263F00AFB60E /* TutorSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorSearchResultsViewController.h; sourceTree = "<group>"; };
+		3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorSearchResultsViewController.m; sourceTree = "<group>"; };
+		3C4289BD14D2263F00AFB60E /* TutorSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorSearchResultsViewController.xib; sourceTree = "<group>"; };
 		3C4CA2C314BF9FD200EE78AA /* Timeslot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timeslot.h; sourceTree = "<group>"; };
 		3C4CA2C414BF9FD200EE78AA /* Timeslot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeslot.m; sourceTree = "<group>"; };
 		3C4CA2C614BFA01000EE78AA /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
@@ -215,14 +220,14 @@
 		430EB9DB1460B2150097DB81 /* TutorSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TutorSearchViewController.m; sourceTree = "<group>"; };
 		430EB9DD1460B2150097DB81 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		430EB9DF1460B2150097DB81 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		430EB9E21460B2150097DB81 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
-		430EB9E51460B2150097DB81 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		430EB9E21460B2150097DB81 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController.xib; sourceTree = "<group>"; };
+		430EB9E51460B2150097DB81 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TutorSearchViewController.xib; sourceTree = "<group>"; };
 		430EB9EC1460B84B0097DB81 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		430EB9ED1460B84B0097DB81 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
-		430EB9EE1460B84B0097DB81 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
+		430EB9EE1460B84B0097DB81 /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
 		430EB9F11460B85C0097DB81 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		430EB9F21460B85C0097DB81 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
-		430EB9F31460B85C0097DB81 /* FourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
+		430EB9F31460B85C0097DB81 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
 		430EB9F61460BAB30097DB81 /* logo_rhit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_rhit.png; sourceTree = "<group>"; };
 		430EB9F81460BDC80097DB81 /* TutorProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorProfileViewController.h; sourceTree = "<group>"; };
 		430EB9F91460BDC80097DB81 /* TutorProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorProfileViewController.m; sourceTree = "<group>"; };
@@ -305,6 +310,8 @@
 				430EB9D41460B2150097DB81 /* HomeViewController.m */,
 				430EB9DA1460B2150097DB81 /* TutorSearchViewController.h */,
 				430EB9DB1460B2150097DB81 /* TutorSearchViewController.m */,
+				3C4289BB14D2263F00AFB60E /* TutorSearchResultsViewController.h */,
+				3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */,
 				430EB9EC1460B84B0097DB81 /* ScheduleViewController.h */,
 				430EB9ED1460B84B0097DB81 /* ScheduleViewController.m */,
 				430EB9F81460BDC80097DB81 /* TutorProfileViewController.h */,
@@ -323,12 +330,13 @@
 			isa = PBXGroup;
 			children = (
 				3C7B103C14C8DB05003FBF43 /* LoginViewController.xib */,
-				430EB9E11460B2150097DB81 /* FirstViewController.xib */,
-				430EB9E41460B2150097DB81 /* SecondViewController.xib */,
+				430EB9E11460B2150097DB81 /* HomeViewController.xib */,
+				430EB9E41460B2150097DB81 /* TutorSearchViewController.xib */,
 				430EB9FA1460BDC80097DB81 /* TutorProfileViewController.xib */,
 				430EBA011460BF6E0097DB81 /* TutorScheduleViewController.xib */,
-				430EB9EE1460B84B0097DB81 /* ThirdViewController.xib */,
-				430EB9F31460B85C0097DB81 /* FourthViewController.xib */,
+				430EB9EE1460B84B0097DB81 /* ScheduleViewController.xib */,
+				430EB9F31460B85C0097DB81 /* ContactViewController.xib */,
+				3C4289BD14D2263F00AFB60E /* TutorSearchResultsViewController.xib */,
 			);
 			name = "xib files";
 			sourceTree = "<group>";
@@ -570,15 +578,16 @@
 				430EB9D91460B2150097DB81 /* first@2x.png in Resources */,
 				430EB9DE1460B2150097DB81 /* second.png in Resources */,
 				430EB9E01460B2150097DB81 /* second@2x.png in Resources */,
-				430EB9E31460B2150097DB81 /* FirstViewController.xib in Resources */,
-				430EB9E61460B2150097DB81 /* SecondViewController.xib in Resources */,
-				430EB9F01460B84B0097DB81 /* ThirdViewController.xib in Resources */,
-				430EB9F51460B85C0097DB81 /* FourthViewController.xib in Resources */,
+				430EB9E31460B2150097DB81 /* HomeViewController.xib in Resources */,
+				430EB9E61460B2150097DB81 /* TutorSearchViewController.xib in Resources */,
+				430EB9F01460B84B0097DB81 /* ScheduleViewController.xib in Resources */,
+				430EB9F51460B85C0097DB81 /* ContactViewController.xib in Resources */,
 				430EB9F71460BAB30097DB81 /* logo_rhit.png in Resources */,
 				430EB9FC1460BDC90097DB81 /* TutorProfileViewController.xib in Resources */,
 				430EB9FE1460BE190097DB81 /* tutor.jpg in Resources */,
 				430EBA031460BF6E0097DB81 /* TutorScheduleViewController.xib in Resources */,
 				3C7B103E14C8DB05003FBF43 /* LoginViewController.xib in Resources */,
+				3C4289BF14D2263F00AFB60E /* TutorSearchResultsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +620,7 @@
 				3C7B103D14C8DB05003FBF43 /* LoginViewController.m in Sources */,
 				3C7B104114C8E5A9003FBF43 /* LCArgs.m in Sources */,
 				3CE5582914CF64AD004F9428 /* DBInteract.m in Sources */,
+				3C4289BE14D2263F00AFB60E /* TutorSearchResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,20 +658,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		430EB9E11460B2150097DB81 /* FirstViewController.xib */ = {
+		430EB9E11460B2150097DB81 /* HomeViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				430EB9E21460B2150097DB81 /* en */,
 			);
-			name = FirstViewController.xib;
+			name = HomeViewController.xib;
 			sourceTree = "<group>";
 		};
-		430EB9E41460B2150097DB81 /* SecondViewController.xib */ = {
+		430EB9E41460B2150097DB81 /* TutorSearchViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				430EB9E51460B2150097DB81 /* en */,
 			);
-			name = SecondViewController.xib;
+			name = TutorSearchViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

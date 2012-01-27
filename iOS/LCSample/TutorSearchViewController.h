@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TutorProfileViewController.h"
+#import "TutorSearchResultsViewController.h"
+#import "DBInteract.h"
 
-@interface TutorSearchViewController : UIViewController
+@interface TutorSearchViewController : UIViewController <UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *nameField;
+@property (strong, nonatomic) IBOutlet UITextField *courseField;
+@property (strong, nonatomic) IBOutlet UITextField *dateField;
 
 
 -(IBAction)submitPressed:(id)sender;

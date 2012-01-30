@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A7A234B14D62CEC002923B2 /* apple_and_slateboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7A234A14D62CEC002923B2 /* apple_and_slateboard.png */; };
 		3C0DD7F814BFE329002DFFE4 /* SampleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DD7F614BFE328002DFFE4 /* SampleModel.xcdatamodeld */; };
 		3C4289BE14D2263F00AFB60E /* TutorSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */; };
 		3C4289BF14D2263F00AFB60E /* TutorSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4289BD14D2263F00AFB60E /* TutorSearchResultsViewController.xib */; };
@@ -172,7 +171,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A7A234A14D62CEC002923B2 /* apple_and_slateboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple_and_slateboard.png; path = ../../../../Desktop/apple_and_slateboard.png; sourceTree = "<group>"; };
 		3C0DD7F714BFE328002DFFE4 /* SampleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModel.xcdatamodel; sourceTree = "<group>"; };
 		3C4289BB14D2263F00AFB60E /* TutorSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorSearchResultsViewController.h; sourceTree = "<group>"; };
 		3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorSearchResultsViewController.m; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				430EB9FD1460BE190097DB81 /* tutor.jpg */,
-				0A7A234A14D62CEC002923B2 /* apple_and_slateboard.png */,
 				430EB9F61460BAB30097DB81 /* logo_rhit.png */,
 				430EB9D61460B2150097DB81 /* first.png */,
 				430EB9D81460B2150097DB81 /* first@2x.png */,
@@ -591,7 +588,6 @@
 				430EBA031460BF6E0097DB81 /* TutorScheduleViewController.xib in Resources */,
 				3C7B103E14C8DB05003FBF43 /* LoginViewController.xib in Resources */,
 				3C4289BF14D2263F00AFB60E /* TutorSearchResultsViewController.xib in Resources */,
-				0A7A234B14D62CEC002923B2 /* apple_and_slateboard.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

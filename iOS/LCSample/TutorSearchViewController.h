@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TutorProfileViewController.h"
 #import "TutorSearchResultsViewController.h"
 #import "DBInteract.h"
 
@@ -15,8 +16,12 @@
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *courseField;
 @property (strong, nonatomic) IBOutlet UITextField *dateField;
+@property (nonatomic, retain) IBOutlet UIDatePicker *customInput;
+@property (nonatomic, retain) IBOutlet UIToolbar *accessoryView;
 
 
 -(IBAction)submitPressed:(id)sender;
+- (IBAction)dateChanged:(id)sender;
+- (IBAction)doneEditing:(id)sender;
 
 @end

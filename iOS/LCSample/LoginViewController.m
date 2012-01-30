@@ -11,7 +11,7 @@
 
 @implementation LoginViewController
 
-@synthesize usernameField,passwordField;
+@synthesize usernameField,passwordField, userNameTable, passwordTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,7 +57,7 @@
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     if (textField == usernameField) {
         [textField resignFirstResponder];
-        return YES;
+        return NO;
     } else {
         [[KerberosAccountManager defaultManager] setSourceURL:@"https://netreg.rose-hulman.edu/tools/networkUsage.pl"];
         [[KerberosAccountManager defaultManager] setUsername:[self.usernameField text]];
@@ -69,18 +69,19 @@
         
         NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         [conn start];
-        return YES;
+        [textField resignFirstResponder];
+        return NO;
     }
     return NO;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-//    NSLog(@"connection did receive authentication challenge");
+    NSLog(@"connection did receive authentication challenge");
     
     if([challenge previousFailureCount] == 0) {
         NSString * username = [[KerberosAccountManager defaultManager] username];
         NSString * password = [[KerberosAccountManager defaultManager] password];
-        //NSLog(@"creating credentials with user:%@ pass:%@", username, password);
+        NSLog(@"creating credentials with user:%@ pass:%@", username, password);
         NSURLCredential * cred = [[NSURLCredential alloc] initWithUser:username password:password persistence:NSURLCredentialPersistenceNone];
         [[challenge sender] useCredential:cred forAuthenticationChallenge:challenge];
     } else {
@@ -101,6 +102,26 @@
     //...more testing necessary
    [self dismissModalViewControllerAnimated:YES];
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if([indexPath row] == 0) return userNameTable;
+    if([indexPath row] == 1) return passwordTable;
+    return nil;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
+
+
+
+
+
 
 
 

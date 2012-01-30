@@ -11,16 +11,21 @@
 
 @implementation TutorSearchViewController
 
-@synthesize nameField, courseField, dateField;
+@synthesize nameField, courseField, dateField, accessoryView,customInput;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Tutor Search", @"Tutor Search");
+        
+        
     }
+    
     return self;
 }
+
+
 							
 - (void)didReceiveMemoryWarning
 {
@@ -33,6 +38,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.nameField.delegate = self;
+    self.courseField.delegate = self;
+    self.dateField.inputView = self.customInput;
+    self.dateField.inputAccessoryView = self.accessoryView;
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -69,23 +79,42 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"keyboard down");
+    
+    [textField resignFirstResponder];
+    return NO;
+    
+}
+
+
 -(IBAction)submitPressed:(id)sender 
 {
     UINavigationController *otherNavController = (UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:1];
     
-    NSMutableArray *tutors = [[DBInteract sharedInstance] getTutorsWithName:nameField.text course:courseField.text andDateAvailable:dateField.text];
+    NSMutableArray *tutors = [[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text];
     
-//    TutorSearchResultsViewController *results = [[TutorSearchResultsViewController alloc] init];
-//    results.possibleTutors = tutors;
+   // TutorProfileViewController *tutor = [[TutorProfileViewController alloc] init];
+    //[otherNavController pushViewController:tutor animated:NO];
     
-    //[otherNavController pushViewController:results animated:NO];
-}
-
-- (BOOL) textFieldShouldReturn:(UITextField *)textField {
-    NSLog(@"keyboard down");
-        [textField resignFirstResponder];
-        return YES;
+    TutorSearchResultsViewController *results = [[TutorSearchResultsViewController alloc] init];
+    results.possibleTutors = tutors;
+    
+    [otherNavController pushViewController:results animated:NO];
 }
 
 
+- (IBAction)dateChanged:(id)sender {
+    UIDatePicker *picker = (UIDatePicker *)sender;
+    
+    //TODO: Change formatting of string to match how we are storing it in the web service
+    self.dateField.text = [NSString stringWithFormat:@"%@", picker.date];
+}
+
+- (IBAction)doneEditing:(id)sender {
+    [self.dateField resignFirstResponder];
+}
 @end
+
+
+

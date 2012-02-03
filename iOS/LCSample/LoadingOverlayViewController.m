@@ -1,16 +1,14 @@
 //
-//  TutorSearchResultsViewController.m
-//  LCSample
+//  LoadingOverlayViewController.m
+//  LearningCenter
 //
-//  Created by Ian Cundiff on 1/26/12.
+//  Created by CSSE Department on 2/3/12.
 //  Copyright (c) 2012 Rose-Hulman. All rights reserved.
 //
 
-#import "TutorSearchResultsViewController.h"
+#import "LoadingOverlayViewController.h"
 
-@implementation TutorSearchResultsViewController
-
-@synthesize possibleTutors;
+@implementation LoadingOverlayViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+   
+    
+    
 }
 
 - (void)viewDidUnload
@@ -49,12 +49,5 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
--(IBAction)donePressed:(id)sender 
-{    
-    [self.view removeFromSuperview];
-    
-}
-
 
 @end

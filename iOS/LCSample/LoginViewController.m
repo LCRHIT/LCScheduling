@@ -11,7 +11,7 @@
 
 @implementation LoginViewController
 
-@synthesize usernameField,passwordField, userNameTable, passwordTable;
+@synthesize usernameField,passwordField, userNameTable, passwordTable, overlay, wheel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,6 +59,18 @@
         [textField resignFirstResponder];
         return NO;
     } else {
+        overlay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+        overlay.backgroundColor = [UIColor colorWithWhite:0 alpha:.5];
+        
+        [self.view addSubview:overlay];
+        
+        wheel = [[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+        wheel.frame=CGRectMake(145, 160, 25, 25);
+        wheel.tag  = 1;
+        wheel.color = [UIColor whiteColor];
+        
+        [overlay addSubview:wheel];
+        [wheel startAnimating];
         [[KerberosAccountManager defaultManager] setSourceURL:@"https://netreg.rose-hulman.edu/tools/networkUsage.pl"];
         [[KerberosAccountManager defaultManager] setUsername:[self.usernameField text]];
         [[KerberosAccountManager defaultManager] setPassword:[self.passwordField text]];
@@ -70,6 +82,7 @@
         NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         [conn start];
         [textField resignFirstResponder];
+       
         return NO;
     }
     return NO;
@@ -85,6 +98,8 @@
         NSURLCredential * cred = [[NSURLCredential alloc] initWithUser:username password:password persistence:NSURLCredentialPersistenceNone];
         [[challenge sender] useCredential:cred forAuthenticationChallenge:challenge];
     } else {
+        [wheel removeFromSuperview];
+        [overlay removeFromSuperview];
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Login Failed"
                                                           message:@"The username or password you entered was incorrect, please try again."
                                                          delegate:nil
@@ -100,6 +115,8 @@
     //if it gets here, that means that authentication was successful, therefore the user IS part of the RHIT kerberos database...
     //so we can probably just set some sort of boolean value
     //...more testing necessary
+    [wheel removeFromSuperview];
+    [overlay removeFromSuperview];
    [self dismissModalViewControllerAnimated:YES];
 }
 

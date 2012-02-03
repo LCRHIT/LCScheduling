@@ -100,7 +100,8 @@
     //TutorSearchResultsViewController *results = [[TutorSearchResultsViewController alloc] init];
     //results.possibleTutors = tutors;
     
-    TutorProfileViewController *test = [[TutorProfileViewController alloc] init];
+    TutorSearchResultsViewController *test = [[TutorSearchResultsViewController alloc] init];
+    
     
   
     [self.view addSubview:test.view];

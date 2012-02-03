@@ -18,6 +18,7 @@
 @property(strong, nonatomic) IBOutlet UITextField *passwordField;
 @property(strong, nonatomic) IBOutlet UITableViewCell *userNameTable;
 @property(strong, nonatomic) IBOutlet UITableViewCell *passwordTable;
-
+@property(strong, nonatomic) IBOutlet UIView *overlay;
+@property(strong, nonatomic) IBOutlet UIActivityIndicatorView *wheel;
 
 @end

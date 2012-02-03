@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7AFE0C14DC5E69000D5C62 /* LoadingOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AFE0A14DC5E69000D5C62 /* LoadingOverlayViewController.m */; };
+		0A7AFE0D14DC5E69000D5C62 /* LoadingOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AFE0B14DC5E69000D5C62 /* LoadingOverlayViewController.xib */; };
 		3C0DD7F814BFE329002DFFE4 /* SampleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DD7F614BFE328002DFFE4 /* SampleModel.xcdatamodeld */; };
 		3C4289BE14D2263F00AFB60E /* TutorSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */; };
 		3C4289BF14D2263F00AFB60E /* TutorSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4289BD14D2263F00AFB60E /* TutorSearchResultsViewController.xib */; };
@@ -171,6 +173,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A7AFE0914DC5E69000D5C62 /* LoadingOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingOverlayViewController.h; sourceTree = "<group>"; };
+		0A7AFE0A14DC5E69000D5C62 /* LoadingOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingOverlayViewController.m; sourceTree = "<group>"; };
+		0A7AFE0B14DC5E69000D5C62 /* LoadingOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingOverlayViewController.xib; sourceTree = "<group>"; };
 		3C0DD7F714BFE328002DFFE4 /* SampleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModel.xcdatamodel; sourceTree = "<group>"; };
 		3C4289BB14D2263F00AFB60E /* TutorSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorSearchResultsViewController.h; sourceTree = "<group>"; };
 		3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorSearchResultsViewController.m; sourceTree = "<group>"; };
@@ -322,6 +327,8 @@
 				3C7B103A14C8DB05003FBF43 /* LoginViewController.h */,
 				430EBA001460BF6E0097DB81 /* TutorScheduleViewController.m */,
 				3C7B103B14C8DB05003FBF43 /* LoginViewController.m */,
+				0A7AFE0914DC5E69000D5C62 /* LoadingOverlayViewController.h */,
+				0A7AFE0A14DC5E69000D5C62 /* LoadingOverlayViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -332,6 +339,7 @@
 				3C7B103C14C8DB05003FBF43 /* LoginViewController.xib */,
 				430EB9E11460B2150097DB81 /* HomeViewController.xib */,
 				430EB9E41460B2150097DB81 /* TutorSearchViewController.xib */,
+				0A7AFE0B14DC5E69000D5C62 /* LoadingOverlayViewController.xib */,
 				430EB9FA1460BDC80097DB81 /* TutorProfileViewController.xib */,
 				430EBA011460BF6E0097DB81 /* TutorScheduleViewController.xib */,
 				430EB9F31460B85C0097DB81 /* ContactViewController.xib */,
@@ -588,6 +596,7 @@
 				430EBA031460BF6E0097DB81 /* TutorScheduleViewController.xib in Resources */,
 				3C7B103E14C8DB05003FBF43 /* LoginViewController.xib in Resources */,
 				3C4289BF14D2263F00AFB60E /* TutorSearchResultsViewController.xib in Resources */,
+				0A7AFE0D14DC5E69000D5C62 /* LoadingOverlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +630,7 @@
 				3C7B104114C8E5A9003FBF43 /* LCArgs.m in Sources */,
 				3CE5582914CF64AD004F9428 /* DBInteract.m in Sources */,
 				3C4289BE14D2263F00AFB60E /* TutorSearchResultsViewController.m in Sources */,
+				0A7AFE0C14DC5E69000D5C62 /* LoadingOverlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

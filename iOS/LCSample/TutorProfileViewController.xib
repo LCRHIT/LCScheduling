@@ -180,7 +180,7 @@
 						<string key="IBUIText">ME134</string>
 						<reference key="IBUITextColor" ref="327290713"/>
 						<nil key="IBUIHighlightedColor"/>
-						<object class="NSColor" key="IBUIShadowColor" id="524830739">
+						<object class="NSColor" key="IBUIShadowColor" id="39369691">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
 						</object>
@@ -225,7 +225,7 @@
 						<string key="IBUIText">ME475</string>
 						<reference key="IBUITextColor" ref="327290713"/>
 						<nil key="IBUIHighlightedColor"/>
-						<reference key="IBUIShadowColor" ref="524830739"/>
+						<reference key="IBUIShadowColor" ref="39369691"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<reference key="IBUIFontDescription" ref="11734430"/>

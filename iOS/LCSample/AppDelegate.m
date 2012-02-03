@@ -28,6 +28,7 @@
     TutorSearchViewController *viewController2 = [[TutorSearchViewController alloc] initWithNibName:@"TutorSearchViewController" bundle:nil];
     ScheduleViewController *viewController3 = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
     ContactViewController *viewController4 = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
+    //TutorProfileViewController *viewController5 = [[TutorProfileViewController alloc] initWithNibName:@"TutorProfileViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
     [self.tabBarController shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationPortrait];
     self.window.rootViewController = self.tabBarController;

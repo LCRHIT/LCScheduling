@@ -48,4 +48,16 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(IBAction)donePressed:(id)sender 
+{
+    
+    
+    [self.view removeFromSuperview];
+    
+  
+    
+    
+}
+
+
 @end

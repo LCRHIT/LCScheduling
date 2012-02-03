@@ -92,15 +92,21 @@
 {
     UINavigationController *otherNavController = (UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:1];
     
-    NSMutableArray *tutors = [[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text];
+   // NSMutableArray *tutors = [[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text];
     
    // TutorProfileViewController *tutor = [[TutorProfileViewController alloc] init];
     //[otherNavController pushViewController:tutor animated:NO];
     
-    TutorSearchResultsViewController *results = [[TutorSearchResultsViewController alloc] init];
-    results.possibleTutors = tutors;
+    //TutorSearchResultsViewController *results = [[TutorSearchResultsViewController alloc] init];
+    //results.possibleTutors = tutors;
     
-    [otherNavController pushViewController:results animated:NO];
+    TutorProfileViewController *test = [[TutorProfileViewController alloc] init];
+    
+  
+    [self.view addSubview:test.view];
+    
+    
+   // [otherNavController pushViewController:test animated:NO];
 }
 
 

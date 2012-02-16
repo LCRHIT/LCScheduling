@@ -12,6 +12,8 @@
 
 @implementation DBInteract
 
+int done = 0;
+
 @synthesize possibleTutors, schedule;
 
 
@@ -19,7 +21,7 @@
 {
     if ( self = [super init] )
     {
-        //initialization code
+        possibleTutors = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -49,7 +51,7 @@
     
     RKObjectMapping* tutorSerializationMapping = [RKObjectMapping mappingForClass:[Tutor class] ];
     [tutorSerializationMapping mapAttributes:@"name", @"year", @"major", @"email", nil];
-
+    
     
     //set parser to JSON for "text/html" in case it comes in that way
     [[RKParserRegistry sharedRegistry] setParserClass:[RKJSONParserJSONKit class] forMIMEType:@"text/html"];
@@ -67,31 +69,43 @@
     manager.router = router;
     
     //create mappings for the specific attributes of the objects
-    RKObjectMapping *argMap = [RKObjectMapping mappingForClass:[LCArgs class]];
-    [argMap mapKeyPath:@"LCTutorName" toAttribute:@"LCTutorName"];
-    [manager.mappingProvider setMapping:argMap forKeyPath:@"get_tutors_by_name"];
+    //    RKObjectMapping *argMap = [RKObjectMapping mappingForClass:[LCArgs class]];
+    //    [argMap mapKeyPath:@"LCTutorName" toAttribute:@"LCTutorName"];
+    //    [manager.mappingProvider setMapping:argMap forKeyPath:@"get_tutors_by_name"];
+    //    
+    //    RKObjectMapping *tutorMapping = [RKObjectMapping mappingForClass:[Tutor class]];
+    //    [tutorMapping mapKeyPath:@"name" toAttribute:@"name"];
+    //    [tutorMapping mapKeyPath:@"year" toAttribute:@"year"];
+    //    [tutorMapping mapKeyPath:@"major" toAttribute:@"major"];
+    //    [tutorMapping mapKeyPath:@"email" toAttribute:@"email"]; //attribute means in the objc class
+    //    //one for schedule in the future
+    //    [manager.mappingProvider setMapping:tutorMapping forKeyPath:@"get_tutors_by_name"];
     
-    RKObjectMapping *tutorMapping = [RKObjectMapping mappingForClass:[Tutor class]];
-    [tutorMapping mapKeyPath:@"name" toAttribute:@"name"];
-    [tutorMapping mapKeyPath:@"year" toAttribute:@"year"];
-    [tutorMapping mapKeyPath:@"major" toAttribute:@"major"];
-    [tutorMapping mapKeyPath:@"email" toAttribute:@"email"]; //attribute means in the objc class
-    //one for schedule in the future
-    [manager.mappingProvider setMapping:tutorMapping forKeyPath:@"get_tutors_by_name"];
-
     //create the object to post and post it with an appropriate object mapping
     LCArgs *args = [LCArgs new];
-    args.LCTutorName = @"Ian";
+    args.LCTutorName = name;
     
-    Tutor *demoTutor = [Tutor new];
-    demoTutor.name = @"Ian";
     
-    [manager loadObjectsAtResourcePath:@"/rest/get_tutors_by_name" delegate:self];
+    NSArray *postArray = [NSArray arrayWithObjects:manager, args, nil];
     
-//    [manager postObject:args mapResponseWith:argMap delegate:self];
+    //@synchronized(self) {  
+    [self performSelectorInBackground:@selector(postWithArray:) withObject:postArray];
+    //}
+    
+    //    [self postWithArray:postArray];
+    
+    //this is making postObject sleep too...
+    
+    //    [manager performSelectorOnMainThread:@selector(postObject:delegate:) withObject:args withObject:self waitUntilDone:YES];
+    
     
     
     return possibleTutors;
+    
+}
+
+-(void)postWithArray:(NSArray*)array {
+    [[array objectAtIndex:0] postObject:[array objectAtIndex:1] delegate:self];
 }
 
 /**
@@ -116,46 +130,62 @@
 
 //TODO: handle problems and such here
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-    NSLog(@"error: %@",error);
+    //    NSLog(@"error: %@",error);
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {
     //    NSLog(@"loaded objects %@",((Auth_Result*)[objects objectAtIndex:1]).token);
-    NSLog(@"objects: %@",objects);
+    //    NSLog(@"objects: %@",objects);
 }
 
 //what made the call
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object {
     //    NSLog(@"Auth_Result.token = %@",((LCAuth*)object).username);
     //    NSLog(@"object: %@",((LCAuth*)object).username);
-    NSLog(@"object loaded: %@\n",object);
+    //    NSLog(@"object loaded: %@\n",object);
 }
 
 - (void)objectLoaderDidLoadUnexpectedResponse:(RKObjectLoader *)objectLoader {
-    NSLog(@"unexpected response...");
+    //    NSLog(@"unexpected response...");
 }
 
 //TODO: extend this so that it handles different types of responses...
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    //@synchronized(self) {
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
     
-//    NSMutableArray *tutors;
-//    RKJSONParserJSONKit* parser = [RKJSONParserJSONKit new]; 
-//    tutors =    [parser objectFromString:[response bodyAsString]]; 
+    //put everything from the response into an array
+    NSArray *tutors = [NSArray alloc];
+    RKJSONParserJSONKit* parser = [RKJSONParserJSONKit new]; 
+    tutors = [parser objectFromString:[response bodyAsString] error:NULL];
     
-//    Tutor *tempTutor = [Tutor new];
-//    tempTutor.name = [[response parsedBody:NULL] objectForKey:@"name"];
-//    tempTutor.year = [[response parsedBody:NULL] objectForKey:@"year"];
-//    tempTutor.email = [[response parsedBody:NULL] objectForKey:@"email"];
-//    tempTutor.major = [[response parsedBody:NULL] objectForKey:@"major"];
-//    
-//    NSLog(@"year: %@\n",tempTutor.year);
-//    
-//    [possibleTutors addObject:tempTutor];
+    NSLog(@"object from string: %@",[parser objectFromString:[response bodyAsString] error:NULL]);
+    
+    for (int i = 0; i < tutors.count; i++) {
+        NSLog(@"in for loop\n");
+        //make a new tutor
+        Tutor *tempTutor = [Tutor new];
+        tempTutor.name = [[tutors valueForKey:@"name"] objectAtIndex:i];
+        tempTutor.year = [[tutors valueForKey:@"year"] objectAtIndex:i];
+        tempTutor.email = [[tutors valueForKey:@"email"] objectAtIndex:i];
+        tempTutor.major = [[tutors valueForKey:@"major"] objectAtIndex:i];
+        //add image_url
+        
+        //add the tutor to the array
+        [possibleTutors addObject:tempTutor];
+        NSLog(@"possible tutors: %@",[[possibleTutors objectAtIndex:i] name]);
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TutorsUpdated" object:nil];
+    
+    
+    
+    
+    
 }
 
 - (void)request:(RKRequest *)request didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
-    NSLog(@"sent body data %d",totalBytesWritten);
+    //    NSLog(@"sent body data %d",totalBytesWritten);
 }
 
 @end

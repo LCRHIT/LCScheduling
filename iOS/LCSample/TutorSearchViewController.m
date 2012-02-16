@@ -18,8 +18,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Tutor Search", @"Tutor Search");
-        
-        
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tutorsUpdated) name:@"TutorsUpdated" object:nil];
     }
     
     return self;
@@ -90,24 +89,36 @@
 
 -(IBAction)submitPressed:(id)sender 
 {
-    UINavigationController *otherNavController = (UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:1];
     
-   // NSMutableArray *tutors = [[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text];
     
-   // TutorProfileViewController *tutor = [[TutorProfileViewController alloc] init];
+    [[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text];
+    
+    
+    //    NSLog(@"tutors-->%@",[[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text]);
+    
+    //    @synchronized(self) {
+    
+
+}
+
+-(void)tutorsUpdated {
+    NSLog(@"possibilites: %@",[[[[DBInteract sharedInstance] possibleTutors] objectAtIndex:0] name]);
+    NSMutableArray *tutors = [NSMutableArray alloc];
+    tutors = [[DBInteract sharedInstance] possibleTutors];
+    //    }
+    
+    // TutorProfileViewController *tutor = [[TutorProfileViewController alloc] init];
     //[otherNavController pushViewController:tutor animated:NO];
     
-    //TutorSearchResultsViewController *results = [[TutorSearchResultsViewController alloc] init];
-    //results.possibleTutors = tutors;
+    TutorSearchResultsViewController *results = [[TutorSearchResultsViewController alloc] init];
+    results.possibleTutors = tutors;
     
-    TutorSearchResultsViewController *test = [[TutorSearchResultsViewController alloc] init];
+//    [self.view.window.rootViewController presentModalViewController:results animated:NO];
     
+    [self.view addSubview:results.view];
     
-  
-    [self.view addSubview:test.view];
-    
-    
-   // [otherNavController pushViewController:test animated:NO];
+//    UINavigationController *otherNavController = (UINavigationController *)[[self.tabBarController viewControllers] objectAtIndex:0];
+//    [otherNavController pushViewController:results animated:NO];
 }
 
 

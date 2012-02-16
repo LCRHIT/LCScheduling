@@ -11,5 +11,6 @@
 
 
 @interface TutorProfileViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *majorsLabel;
 
 @end

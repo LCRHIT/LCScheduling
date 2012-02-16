@@ -24,4 +24,6 @@
 - (IBAction)dateChanged:(id)sender;
 - (IBAction)doneEditing:(id)sender;
 
+-(void)tutorsUpdated;
+
 @end

@@ -9,6 +9,7 @@
 #import "ScheduleViewController.h"
 
 @implementation ScheduleViewController
+@synthesize dateLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [dateLabel setText: @"Today's Schedule"];
 }
 
 - (void)viewDidUnload

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ScheduleViewController: UIViewController
+@property (strong,nonatomic) IBOutlet UILabel *dateLabel;
 
 @end

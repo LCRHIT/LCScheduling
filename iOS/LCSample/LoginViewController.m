@@ -94,7 +94,7 @@
     if([challenge previousFailureCount] == 0) {
         NSString * username = [[KerberosAccountManager defaultManager] username];
         NSString * password = [[KerberosAccountManager defaultManager] password];
-        NSLog(@"creating credentials with user:%@ pass:%@", username, password);
+//        NSLog(@"creating credentials with user:%@ pass:%@", username, password);
         NSURLCredential * cred = [[NSURLCredential alloc] initWithUser:username password:password persistence:NSURLCredentialPersistenceNone];
         [[challenge sender] useCredential:cred forAuthenticationChallenge:challenge];
     } else {

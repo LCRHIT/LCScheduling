@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A7AFE0C14DC5E69000D5C62 /* LoadingOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AFE0A14DC5E69000D5C62 /* LoadingOverlayViewController.m */; };
 		0A7AFE0D14DC5E69000D5C62 /* LoadingOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AFE0B14DC5E69000D5C62 /* LoadingOverlayViewController.xib */; };
+		0AC8419A14EC7C4600FB35E0 /* RoseLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8419914EC7C4600FB35E0 /* RoseLogo.png */; };
 		3C0DD7F814BFE329002DFFE4 /* SampleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DD7F614BFE328002DFFE4 /* SampleModel.xcdatamodeld */; };
 		3C4289BE14D2263F00AFB60E /* TutorSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */; };
 		3C4289BF14D2263F00AFB60E /* TutorSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4289BD14D2263F00AFB60E /* TutorSearchResultsViewController.xib */; };
@@ -176,6 +177,7 @@
 		0A7AFE0914DC5E69000D5C62 /* LoadingOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingOverlayViewController.h; sourceTree = "<group>"; };
 		0A7AFE0A14DC5E69000D5C62 /* LoadingOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingOverlayViewController.m; sourceTree = "<group>"; };
 		0A7AFE0B14DC5E69000D5C62 /* LoadingOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingOverlayViewController.xib; sourceTree = "<group>"; };
+		0AC8419914EC7C4600FB35E0 /* RoseLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoseLogo.png; sourceTree = "<group>"; };
 		3C0DD7F714BFE328002DFFE4 /* SampleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModel.xcdatamodel; sourceTree = "<group>"; };
 		3C4289BB14D2263F00AFB60E /* TutorSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorSearchResultsViewController.h; sourceTree = "<group>"; };
 		3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorSearchResultsViewController.m; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 		3C7B102D14C86E98003FBF43 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0AC8419914EC7C4600FB35E0 /* RoseLogo.png */,
 				430EB9FD1460BE190097DB81 /* tutor.jpg */,
 				430EB9F61460BAB30097DB81 /* logo_rhit.png */,
 				430EB9D61460B2150097DB81 /* first.png */,
@@ -597,6 +600,7 @@
 				3C7B103E14C8DB05003FBF43 /* LoginViewController.xib in Resources */,
 				3C4289BF14D2263F00AFB60E /* TutorSearchResultsViewController.xib in Resources */,
 				0A7AFE0D14DC5E69000D5C62 /* LoadingOverlayViewController.xib in Resources */,
+				0AC8419A14EC7C4600FB35E0 /* RoseLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

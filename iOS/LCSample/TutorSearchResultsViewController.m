@@ -56,5 +56,25 @@
     
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [possibleTutors count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero] autorelease];
+    }
+    
+    // Set up the cell...
+    NSString *cellValue = [[possibleTutors objectAtIndex:indexPath.row] name];
+    cell.textLabel.text = cellValue;
+    
+    return cell;
+}
+
 
 @end

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TutorSearchResultsViewController : UIViewController
+@interface TutorSearchResultsViewController : UITableViewController <UITableViewDataSource, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *possibleTutors;
+
+-(IBAction)donePressed:(id)sender; 
 
 @end

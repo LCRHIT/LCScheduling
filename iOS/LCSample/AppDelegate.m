@@ -18,17 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    //context = [[UIApplication delegate] managedObjectContext];
-    
-    //TODO: only populate the tab bar controller if the login screen returns true
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    HomeViewController *viewController1 = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
-    TutorSearchViewController *viewController2 = [[TutorSearchViewController alloc] initWithNibName:@"TutorSearchViewController" bundle:nil];
-    ScheduleViewController *viewController3 = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
-    ContactViewController *viewController4 = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
-    //TutorProfileViewController *viewController5 = [[TutorProfileViewController alloc] initWithNibName:@"TutorProfileViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
     [self.tabBarController shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationPortrait];
     self.window.rootViewController = self.tabBarController;
@@ -36,6 +26,11 @@
     LoginViewController *loginView = [LoginViewController alloc];
     [self.window.rootViewController presentModalViewController:loginView animated:NO];
     
+    //with these down here, they shouldn't be created until the user logs in...
+    HomeViewController *viewController1 = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+    TutorSearchViewController *viewController2 = [[TutorSearchViewController alloc] initWithNibName:@"TutorSearchViewController" bundle:nil];
+    ScheduleViewController *viewController3 = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
+    ContactViewController *viewController4 = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, nil];
     [self.window.rootViewController.view setNeedsDisplay];
 

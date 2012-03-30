@@ -1,0 +1,21 @@
+visual
+-make screen (entry fields) move up with the keyboard
+-improve home screen appearance
+-remove daily schedule tab
+-improve look of contact buttons (letter, phone?)
+-fix top bar on tutor results view
+-improve tutor profile pages (contact button as email address, etc.)
+
+logical
+-back buttons where they need to be (tutor results, profile back button goes back to results)
+-results don't compound (i.e. Ian, Kyle, Cody, etc.)
+-get tutor schedule to display
+-search based on other criteria than name
+-book tutor
+-go around releasing objects (also check for memory leaks)
+
+tests
+-come up with good unit tests (mocking?)
+-get the application running on device (talk to darryl?)
+-make sure git continues to work
+

@@ -10,4 +10,8 @@
 
 @interface Course : NSObject
 
+@property (strong, nonatomic) NSString *department;
+@property (strong, nonatomic) NSString *courseNumber;
+@property (strong, nonatomic) NSString *courseDescription;
+
 @end

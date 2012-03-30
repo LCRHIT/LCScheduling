@@ -54,7 +54,10 @@
 {    
     [self.view removeFromSuperview];
     
+    
 }
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [possibleTutors count];
@@ -73,8 +76,40 @@
     NSString *cellValue = [[possibleTutors objectAtIndex:indexPath.row] name];
     cell.textLabel.text = cellValue;
     
+//    NSLog(@"cell: %@")
+    
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *nameEntered = cell.textLabel.text;
+    Tutor *tutor;
+    
+   
+    for (int i =0; i <[possibleTutors count]; i++){
+        tutor = (Tutor *)[possibleTutors objectAtIndex:i];
+        if ([tutor.name isEqualToString:nameEntered]){
+            break;
+        }
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    
+    TutorProfileViewController *profileView = [TutorProfileViewController alloc];
+    [profileView setTutor:tutor]; 
+    
+       
+    [self presentModalViewController:profileView animated:NO];
+    
+}
+
+
+
+
 
 
 @end

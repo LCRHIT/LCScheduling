@@ -10,4 +10,6 @@
 
 @implementation Course
 
+@synthesize department,courseNumber,courseDescription;
+
 @end

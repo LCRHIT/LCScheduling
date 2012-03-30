@@ -1,17 +1,16 @@
 //
-//  LCAuth.h
-//  LCSample
+//  TestAuth.h
+//  LearningCenter
 //
-//  Created by Ian Cundiff on 1/12/12.
+//  Created by Ian Cundiff on 3/16/12.
 //  Copyright (c) 2012 Rose-Hulman. All rights reserved.
 //
 
-//#import <RestKit/CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
-@interface LCAuth : NSObject
+@interface TestAuth : NSObject
 
 @property (nonatomic, retain) NSString* username;
 @property (nonatomic, retain) NSString* password;
-
 
 @end

@@ -17,7 +17,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -35,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(credentialsSubmitted:) name:@"LoginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(credentialsSubmitted:) name:@"LoginFailure" object:nil];
     [usernameField setDelegate:self];
     [passwordField setDelegate:self];
     
@@ -71,16 +73,23 @@
         
         [overlay addSubview:wheel];
         [wheel startAnimating];
-        [[KerberosAccountManager defaultManager] setSourceURL:@"https://netreg.rose-hulman.edu/tools/networkUsage.pl"];
-        [[KerberosAccountManager defaultManager] setUsername:[self.usernameField text]];
-        [[KerberosAccountManager defaultManager] setPassword:[self.passwordField text]];
+//        [[KerberosAccountManager defaultManager] setSourceURL:@"https://netreg.rose-hulman.edu/tools/networkUsage.pl"];
+//        [[KerberosAccountManager defaultManager] setUsername:[self.usernameField text]];
+//        [[KerberosAccountManager defaultManager] setPassword:[self.passwordField text]];
+//        
+//        NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[[KerberosAccountManager defaultManager] sourceURL]] 
+//                                                                     cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData 
+//                                                                 timeoutInterval:10.0];
+//        
+//        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//        [conn start];
         
-        NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[[KerberosAccountManager defaultManager] sourceURL]] 
-                                                                     cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData 
-                                                                 timeoutInterval:10.0];
+        LCAuth* auth = [LCAuth alloc];
+        auth.username = usernameField.text;
+        auth.password = passwordField.text;
         
-        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        [conn start];
+        [[DBInteract sharedInstance] authenticateWithCredentials:auth];
+        
         [textField resignFirstResponder];
        
         return NO;
@@ -118,6 +127,29 @@
     [wheel removeFromSuperview];
     [overlay removeFromSuperview];
    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)credentialsSubmitted:(NSNotification *) notification {
+    if ([notification.name isEqual:@"LoginSuccess"]) {
+        [wheel removeFromSuperview];
+        [overlay removeFromSuperview];
+        [self dismissModalViewControllerAnimated:YES];
+    } else {
+        [wheel removeFromSuperview];
+        [overlay removeFromSuperview];
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Login Failed"
+                                                          message:@"The username or password you entered was incorrect, please try again."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        
+        [message show];
+    }
+        
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

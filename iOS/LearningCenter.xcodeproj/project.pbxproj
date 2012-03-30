@@ -11,6 +11,11 @@
 		0A7AFE0D14DC5E69000D5C62 /* LoadingOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AFE0B14DC5E69000D5C62 /* LoadingOverlayViewController.xib */; };
 		0AC8419A14EC7C4600FB35E0 /* RoseLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8419914EC7C4600FB35E0 /* RoseLogo.png */; };
 		3C0DD7F814BFE329002DFFE4 /* SampleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DD7F614BFE328002DFFE4 /* SampleModel.xcdatamodeld */; };
+		3C35255E152508B30050C994 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C35255D152508B20050C994 /* SenTestingKit.framework */; };
+		3C35255F152508B30050C994 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C11460B2150097DB81 /* UIKit.framework */; };
+		3C352560152508B30050C994 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C31460B2150097DB81 /* Foundation.framework */; };
+		3C352566152508B30050C994 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C352564152508B30050C994 /* InfoPlist.strings */; };
+		3C352569152508B30050C994 /* LCUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C352568152508B30050C994 /* LCUnitTests.m */; };
 		3C4289BE14D2263F00AFB60E /* TutorSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */; };
 		3C4289BF14D2263F00AFB60E /* TutorSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4289BD14D2263F00AFB60E /* TutorSearchResultsViewController.xib */; };
 		3C4CA2C514BF9FD200EE78AA /* Timeslot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CA2C414BF9FD200EE78AA /* Timeslot.m */; };
@@ -25,6 +30,7 @@
 		3C7B103D14C8DB05003FBF43 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B103B14C8DB05003FBF43 /* LoginViewController.m */; };
 		3C7B103E14C8DB05003FBF43 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C7B103C14C8DB05003FBF43 /* LoginViewController.xib */; };
 		3C7B104114C8E5A9003FBF43 /* LCArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B104014C8E5A8003FBF43 /* LCArgs.m */; };
+		3C9080B61513ABBD00646483 /* TestAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9080B51513ABBC00646483 /* TestAuth.m */; };
 		3CC0CE3214C0939C0027F535 /* Auth_Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0CE3114C0939C0027F535 /* Auth_Result.m */; };
 		3CE5582914CF64AD004F9428 /* DBInteract.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5582814CF64AD004F9428 /* DBInteract.m */; };
 		430EB9C21460B2150097DB81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430EB9C11460B2150097DB81 /* UIKit.framework */; };
@@ -63,6 +69,7 @@
 		894E816114BF979A00301063 /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 894E500D14BF918700301063 /* libRestKitObjectMapping.a */; };
 		894E816214BF979A00301063 /* libRestKitSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 894E500F14BF918700301063 /* libRestKitSupport.a */; };
 		894E816314BF979A00301063 /* libRestKitXMLParserLibxml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 894E501914BF918700301063 /* libRestKitXMLParserLibxml.a */; };
+		89A5F25B14ECFE8900B4C8DD /* LCArgsAlt.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A5F25A14ECFE8800B4C8DD /* LCArgsAlt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +186,13 @@
 		0A7AFE0B14DC5E69000D5C62 /* LoadingOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingOverlayViewController.xib; sourceTree = "<group>"; };
 		0AC8419914EC7C4600FB35E0 /* RoseLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoseLogo.png; sourceTree = "<group>"; };
 		3C0DD7F714BFE328002DFFE4 /* SampleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModel.xcdatamodel; sourceTree = "<group>"; };
+		3C35255C152508B20050C994 /* LCUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LCUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C35255D152508B20050C994 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3C352563152508B30050C994 /* LCUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LCUnitTests-Info.plist"; sourceTree = "<group>"; };
+		3C352565152508B30050C994 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3C352567152508B30050C994 /* LCUnitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUnitTests.h; sourceTree = "<group>"; };
+		3C352568152508B30050C994 /* LCUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUnitTests.m; sourceTree = "<group>"; };
+		3C35256A152508B30050C994 /* LCUnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LCUnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		3C4289BB14D2263F00AFB60E /* TutorSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorSearchResultsViewController.h; sourceTree = "<group>"; };
 		3C4289BC14D2263F00AFB60E /* TutorSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorSearchResultsViewController.m; sourceTree = "<group>"; };
 		3C4289BD14D2263F00AFB60E /* TutorSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorSearchResultsViewController.xib; sourceTree = "<group>"; };
@@ -205,6 +219,8 @@
 		3C7B103C14C8DB05003FBF43 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		3C7B103F14C8E5A8003FBF43 /* LCArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCArgs.h; sourceTree = "<group>"; };
 		3C7B104014C8E5A8003FBF43 /* LCArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCArgs.m; sourceTree = "<group>"; };
+		3C9080B41513ABBC00646483 /* TestAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestAuth.h; path = LCSample/TestAuth.h; sourceTree = "<group>"; };
+		3C9080B51513ABBC00646483 /* TestAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestAuth.m; path = LCSample/TestAuth.m; sourceTree = "<group>"; };
 		3CC0CE3014C0939C0027F535 /* Auth_Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Auth_Result.h; path = LCSample/Auth_Result.h; sourceTree = "<group>"; };
 		3CC0CE3114C0939C0027F535 /* Auth_Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Auth_Result.m; path = LCSample/Auth_Result.m; sourceTree = "<group>"; };
 		3CE5582714CF64AD004F9428 /* DBInteract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBInteract.h; sourceTree = "<group>"; };
@@ -250,9 +266,21 @@
 		894E502914BF93F300301063 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		894E502B14BF940100301063 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		894E502D14BF941600301063 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		89A5F25914ECFE8800B4C8DD /* LCArgsAlt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCArgsAlt.h; sourceTree = "<group>"; };
+		89A5F25A14ECFE8800B4C8DD /* LCArgsAlt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCArgsAlt.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3C352558152508B20050C994 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C35255E152508B30050C994 /* SenTestingKit.framework in Frameworks */,
+				3C35255F152508B30050C994 /* UIKit.framework in Frameworks */,
+				3C352560152508B30050C994 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		430EB9BA1460B2150097DB81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +306,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C352561152508B30050C994 /* LCUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				3C352567152508B30050C994 /* LCUnitTests.h */,
+				3C352568152508B30050C994 /* LCUnitTests.m */,
+				3C352562152508B30050C994 /* Supporting Files */,
+			);
+			path = LCUnitTests;
+			sourceTree = "<group>";
+		};
+		3C352562152508B30050C994 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C352563152508B30050C994 /* LCUnitTests-Info.plist */,
+				3C352564152508B30050C994 /* InfoPlist.strings */,
+				3C35256A152508B30050C994 /* LCUnitTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		3C7B102C14C86E64003FBF43 /* Domain Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,10 +373,10 @@
 				430EB9F81460BDC80097DB81 /* TutorProfileViewController.h */,
 				430EB9F91460BDC80097DB81 /* TutorProfileViewController.m */,
 				430EB9FF1460BF6E0097DB81 /* TutorScheduleViewController.h */,
+				430EBA001460BF6E0097DB81 /* TutorScheduleViewController.m */,
 				430EB9F11460B85C0097DB81 /* ContactViewController.h */,
 				430EB9F21460B85C0097DB81 /* ContactViewController.m */,
 				3C7B103A14C8DB05003FBF43 /* LoginViewController.h */,
-				430EBA001460BF6E0097DB81 /* TutorScheduleViewController.m */,
 				3C7B103B14C8DB05003FBF43 /* LoginViewController.m */,
 				0A7AFE0914DC5E69000D5C62 /* LoadingOverlayViewController.h */,
 				0A7AFE0A14DC5E69000D5C62 /* LoadingOverlayViewController.m */,
@@ -356,12 +404,17 @@
 			isa = PBXGroup;
 			children = (
 				3C7B103F14C8E5A8003FBF43 /* LCArgs.h */,
+				89A5F25914ECFE8800B4C8DD /* LCArgsAlt.h */,
+				89A5F25A14ECFE8800B4C8DD /* LCArgsAlt.m */,
 				3C7B104014C8E5A8003FBF43 /* LCArgs.m */,
 				3C4CA2E914BFB70C00EE78AA /* LCAuth.h */,
 				3C4CA2EA14BFB70C00EE78AA /* LCAuth.m */,
+				3C9080B41513ABBC00646483 /* TestAuth.h */,
+				3C9080B51513ABBC00646483 /* TestAuth.m */,
 				3CC0CE3014C0939C0027F535 /* Auth_Result.h */,
 				3CC0CE3114C0939C0027F535 /* Auth_Result.m */,
 				430EB9C71460B2150097DB81 /* LCSample */,
+				3C352561152508B30050C994 /* LCUnitTests */,
 				430EB9C01460B2150097DB81 /* Frameworks */,
 				430EB9BE1460B2150097DB81 /* Products */,
 				894E4FF614BF918700301063 /* RestKit.xcodeproj */,
@@ -372,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				430EB9BD1460B2150097DB81 /* LearningCenter.app */,
+				3C35255C152508B20050C994 /* LCUnitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -388,6 +442,7 @@
 				430EB9C11460B2150097DB81 /* UIKit.framework */,
 				430EB9C31460B2150097DB81 /* Foundation.framework */,
 				430EB9C51460B2150097DB81 /* CoreGraphics.framework */,
+				3C35255D152508B20050C994 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -445,6 +500,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3C35255B152508B20050C994 /* LCUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C35256B152508B30050C994 /* Build configuration list for PBXNativeTarget "LCUnitTests" */;
+			buildPhases = (
+				3C352557152508B20050C994 /* Sources */,
+				3C352558152508B20050C994 /* Frameworks */,
+				3C352559152508B20050C994 /* Resources */,
+				3C35255A152508B20050C994 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LCUnitTests;
+			productName = LCUnitTests;
+			productReference = 3C35255C152508B20050C994 /* LCUnitTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		430EB9BC1460B2150097DB81 /* LearningCenter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 430EB9E91460B2150097DB81 /* Build configuration list for PBXNativeTarget "LearningCenter" */;
@@ -494,6 +567,7 @@
 			projectRoot = "";
 			targets = (
 				430EB9BC1460B2150097DB81 /* LearningCenter */,
+				3C35255B152508B20050C994 /* LCUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -580,6 +654,14 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3C352559152508B20050C994 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C352566152508B30050C994 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		430EB9BB1460B2150097DB81 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -606,7 +688,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C35255A152508B20050C994 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		3C352557152508B20050C994 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C352569152508B30050C994 /* LCUnitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		430EB9B91460B2150097DB81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -635,6 +741,8 @@
 				3CE5582914CF64AD004F9428 /* DBInteract.m in Sources */,
 				3C4289BE14D2263F00AFB60E /* TutorSearchResultsViewController.m in Sources */,
 				0A7AFE0C14DC5E69000D5C62 /* LoadingOverlayViewController.m in Sources */,
+				89A5F25B14ECFE8900B4C8DD /* LCArgsAlt.m in Sources */,
+				3C9080B61513ABBD00646483 /* TestAuth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +772,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3C352564152508B30050C994 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3C352565152508B30050C994 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		430EB9CA1460B2150097DB81 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -691,6 +807,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3C35256C152508B30050C994 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LearningCenter.app/LearningCenter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LCUnitTests/LCUnitTests-Prefix.pch";
+				INFOPLIST_FILE = "LCUnitTests/LCUnitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		3C35256D152508B30050C994 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LCUnitTests/LCUnitTests-Prefix.pch";
+				INFOPLIST_FILE = "LCUnitTests/LCUnitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		430EB9E71460B2150097DB81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -744,6 +893,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LCSample/LearningCenter-Prefix.pch";
 				INFOPLIST_FILE = "LCSample/LearningCenter-Info.plist";
@@ -752,6 +903,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = LearningCenter;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -760,6 +913,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LCSample/LearningCenter-Prefix.pch";
 				INFOPLIST_FILE = "LCSample/LearningCenter-Info.plist";
@@ -768,6 +922,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = LearningCenter;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -775,6 +930,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3C35256B152508B30050C994 /* Build configuration list for PBXNativeTarget "LCUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C35256C152508B30050C994 /* Debug */,
+				3C35256D152508B30050C994 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		430EB9B71460B2140097DB81 /* Build configuration list for PBXProject "LearningCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

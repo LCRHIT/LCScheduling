@@ -14,14 +14,16 @@
 
 int done = 0;
 
-@synthesize possibleTutors, schedule;
+@synthesize possibleTutors, schedule,currentCoursesTutored;
 
 
 - (id) init
 {
+    possibleTutors = [[NSMutableArray alloc] init];
+    NSLog(@"POSSIBLE TUTORS");
     if ( self = [super init] )
     {
-        possibleTutors = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }
@@ -41,9 +43,10 @@ int done = 0;
  TODO: Get the tutors (plural) that fit the given criteria from the server and return them as an array...
  **/
 -(NSMutableArray*)getTutorsWithName:(NSString*)name course:(NSString*)course andDateAvailable:(NSString*)date {
+    responseType = 1;
     
     //initialize object manager with url of web service
-    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"];
+    RKObjectManager *manager = [[RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"] retain];
     
     //set serlialization for each type of object    
     RKObjectMapping* argSerializationMapping = [RKObjectMapping mappingForClass:[LCArgs class] ];
@@ -52,6 +55,9 @@ int done = 0;
     RKObjectMapping* tutorSerializationMapping = [RKObjectMapping mappingForClass:[Tutor class] ];
     [tutorSerializationMapping mapAttributes:@"name", @"year", @"major", @"email", nil];
     
+    RKObjectMapping* auth = [RKObjectMapping mappingForClass:[TestAuth class] ];
+    [tutorSerializationMapping mapAttributes:@"username", @"password", nil];
+    
     
     //set parser to JSON for "text/html" in case it comes in that way
     [[RKParserRegistry sharedRegistry] setParserClass:[RKJSONParserJSONKit class] forMIMEType:@"text/html"];
@@ -59,6 +65,7 @@ int done = 0;
     //register the mappings with the object managers mapping provider
     [manager.mappingProvider setSerializationMapping:argSerializationMapping forClass:[LCArgs class]];
     [manager.mappingProvider setSerializationMapping:tutorSerializationMapping forClass:[Tutor class]];
+    [manager.mappingProvider setSerializationMapping:auth forClass:[TestAuth class]];
     
     //let the manager know what MIME type to look out for
     [manager setSerializationMIMEType:RKMIMETypeJSON]; 
@@ -66,6 +73,7 @@ int done = 0;
     //create a router and set it to specific routes on the website for given request types
     RKObjectRouter* router = [[RKObjectRouter new] autorelease];
     [router routeClass:[LCArgs class] toResourcePath:@"/rest/get_tutors_by_name" forMethod:RKRequestMethodPOST];  
+//    [router routeClass:[TestAuth class] toResourcePath:@"/rest/authenticate" forMethod:RKRequestMethodPOST]; 
     manager.router = router;
     
     //create mappings for the specific attributes of the objects
@@ -85,6 +93,10 @@ int done = 0;
     LCArgs *args = [LCArgs new];
     args.LCTutorName = name;
     
+//    TestAuth *args = [TestAuth new];
+//    args.username = @"cundifij";
+//    args.password = @"k";
+    
     
     NSArray *postArray = [NSArray arrayWithObjects:manager, args, nil];
     
@@ -101,6 +113,92 @@ int done = 0;
     
     
     return possibleTutors;
+    
+}
+
+-(NSMutableArray*)getCoursesTutoredByName:(NSString*)name {
+    responseType = 2;
+  
+    //initialize object manager with url of web service
+    RKObjectManager *manager = [[RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"] retain];
+    
+    //set serlialization for each type of object    
+    RKObjectMapping* argSerializationMapping = [RKObjectMapping mappingForClass:[LCArgsAlt class] ];
+    [argSerializationMapping mapAttributes:@"LCTutorID", nil];
+    
+    RKObjectMapping* courseSerializationMapping = [RKObjectMapping mappingForClass:[Course class] ];
+    [courseSerializationMapping mapAttributes:@"department", @"course_number", @"course_description",nil];
+    
+    //set parser to JSON for "text/html" in case it comes in that way
+    [[RKParserRegistry sharedRegistry] setParserClass:[RKJSONParserJSONKit class] forMIMEType:@"text/html"];
+    
+    //register the mappings with the object managers mapping provider
+    [manager.mappingProvider setSerializationMapping:argSerializationMapping forClass:[LCArgsAlt class]];
+    [manager.mappingProvider setSerializationMapping:courseSerializationMapping forClass:[Course class]];
+    
+    //let the manager know what MIME type to look out for
+    [manager setSerializationMIMEType:RKMIMETypeJSON]; 
+    
+    //create a router and set it to specific routes on the website for given request types
+    RKObjectRouter* router = [[RKObjectRouter new] autorelease];
+    [router routeClass:[LCArgsAlt class] toResourcePath:@"/rest/get_tutor_courses_tutored" forMethod:RKRequestMethodPOST];  
+    manager.router = router;
+    
+    
+    
+    //create the object to post and post it with an appropriate object mapping
+    LCArgsAlt *args = [LCArgsAlt new];
+    args.LCTutorID = name;
+    
+    
+    NSArray *postArray = [NSArray arrayWithObjects:manager, args, nil];
+    
+    //@synchronized(self) {  
+//    [self performSelectorInBackground:@selector(postWithArray:) withObject:postArray];
+    [self postWithArray:postArray];
+    //}
+    
+    //    [self postWithArray:postArray];
+    
+    //this is making postObject sleep too...
+    
+    //    [manager performSelectorOnMainThread:@selector(postObject:delegate:) withObject:args withObject:self waitUntilDone:YES];
+   
+    
+    
+    return currentCoursesTutored;
+    
+}
+
+-(void)authenticateWithCredentials:(LCAuth *)credentials {
+    responseType = 3;
+    
+    //initialize object manager with url of web service
+    RKObjectManager *manager = [[RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"] retain];
+
+    RKObjectMapping* auth = [RKObjectMapping mappingForClass:[LCAuth class]];
+    [auth mapAttributes:@"username", @"password", nil];
+    
+    
+    //set parser to JSON for "text/html" in case it comes in that way
+    [[RKParserRegistry sharedRegistry] setParserClass:[RKJSONParserJSONKit class] forMIMEType:@"text/html"];
+    
+    //register the mappings with the object managers mapping provider
+    [manager.mappingProvider setSerializationMapping:auth forClass:[LCAuth class]];
+    
+    //let the manager know what MIME type to look out for
+    [manager setSerializationMIMEType:RKMIMETypeJSON]; 
+    
+    //create a router and set it to specific routes on the website for given request types
+    RKObjectRouter* router = [[RKObjectRouter new] autorelease];
+    [router routeClass:[LCAuth class] toResourcePath:@"/rest/authenticate" forMethod:RKRequestMethodPOST];   
+    manager.router = router;
+    
+    
+    NSArray *postArray = [NSArray arrayWithObjects:manager, credentials, nil];
+    
+    [self performSelectorInBackground:@selector(postWithArray:) withObject:postArray];
+
     
 }
 
@@ -154,30 +252,76 @@ int done = 0;
     //@synchronized(self) {
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
     
+    
     //put everything from the response into an array
-    NSArray *tutors = [NSArray alloc];
-    RKJSONParserJSONKit* parser = [RKJSONParserJSONKit new]; 
-    tutors = [parser objectFromString:[response bodyAsString] error:NULL];
     
-    NSLog(@"object from string: %@",[parser objectFromString:[response bodyAsString] error:NULL]);
     
-    for (int i = 0; i < tutors.count; i++) {
-        NSLog(@"in for loop\n");
-        //make a new tutor
-        Tutor *tempTutor = [Tutor new];
-        tempTutor.name = [[tutors valueForKey:@"name"] objectAtIndex:i];
-        tempTutor.year = [[tutors valueForKey:@"year"] objectAtIndex:i];
-        tempTutor.email = [[tutors valueForKey:@"email"] objectAtIndex:i];
-        tempTutor.major = [[tutors valueForKey:@"major"] objectAtIndex:i];
-        //add image_url
+    //handle stuff based on response type
+    if (responseType ==1){
+        NSArray *tutors = [NSArray alloc];
+        RKJSONParserJSONKit* parser = [RKJSONParserJSONKit new]; 
+        tutors = [parser objectFromString:[response bodyAsString] error:NULL];
+    
+        NSLog(@"object from string: %@",[parser objectFromString:[response bodyAsString] error:NULL]);
+    
+        for(int i = 0; i < tutors.count; i++) {
+            NSLog(@"in for loop\n");
+            //make a new tutor
+            Tutor *tempTutor = [Tutor new];
+            tempTutor.idNumber = [[tutors valueForKey:@"TID"] objectAtIndex:i];
+            tempTutor.name = [[tutors valueForKey:@"name"] objectAtIndex:i];
+            tempTutor.year = [[tutors valueForKey:@"year"] objectAtIndex:i];
+            tempTutor.email = [[tutors valueForKey:@"email"] objectAtIndex:i];
+            tempTutor.major = [[tutors valueForKey:@"major"] objectAtIndex:i];
+            tempTutor.pictureURL = [[tutors valueForKey:@"image_url"] objectAtIndex:i];
+            
+            //add image_url
         
-        //add the tutor to the array
-        [possibleTutors addObject:tempTutor];
-        NSLog(@"possible tutors: %@",[[possibleTutors objectAtIndex:i] name]);
-    }
+            //add the tutor to the array
+            [possibleTutors addObject:tempTutor];
+            NSLog(@"possible tutors: %@",[[possibleTutors objectAtIndex:i] name]);
+        }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TutorsUpdated" object:nil];
     
+    }
+    
+    else if (responseType == 2){
+        
+        //TODO: wipe the list of current courses here
+        NSArray *courses = [NSArray alloc];
+        RKJSONParserJSONKit* parser = [RKJSONParserJSONKit new]; 
+        courses = [parser objectFromString:[response bodyAsString] error:NULL];
+        
+        NSLog(@"object from string: %@",[parser objectFromString:[response bodyAsString] error:NULL]);
+        
+        for(int i = 0; i < courses.count; i++) {
+            NSLog(@"in for loop\n");
+            //make a new course
+            Course *tempCourse = [Course new];
+            tempCourse.department = [[courses valueForKey:@"department"] objectAtIndex:i];
+            tempCourse.courseNumber = [[courses valueForKey:@"course_number"] objectAtIndex:i];
+            tempCourse.courseDescription = [[courses valueForKey:@"course_description"] objectAtIndex:i];
+            
+            //add the course to the array
+            [currentCoursesTutored addObject:tempCourse];
+            
+        }
+        
+        
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CoursesUpdated" object:nil];
+    }
+    
+    else if (responseType == 3) {
+        
+        NSLog(@"Body as string: %@",[response bodyAsString]);
+        
+        if ([[response bodyAsString] isEqual:@"true"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+        } else
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFailure" object:nil];
+    }
     
     
     

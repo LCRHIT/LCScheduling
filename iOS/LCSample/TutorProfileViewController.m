@@ -9,19 +9,21 @@
 #import "TutorProfileViewController.h"
 
 @implementation TutorProfileViewController
-@synthesize majorsLabel;
+@synthesize majorsLabel,titleLabel,yearLabel,emailLabel,pictureFrame;
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        
-    
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coursesUpdated) name:@"CoursesUpdated" object:nil];
     }
     return self;
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -36,7 +38,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    majorsLabel.text = @"Test";
+    [titleLabel setText:tutor.name];
+    [majorsLabel setText:[NSString stringWithFormat :@"Major: %@",tutor.major]];
+    [yearLabel setText:[NSString stringWithFormat :@"Class: %@",tutor.year]];
+    [emailLabel setText:tutor.email];
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: tutor.pictureURL]];
+    pictureFrame.image = [UIImage imageWithData: imageData];
+    [imageData release];
+    
+  
+    
     
     
    
@@ -55,13 +66,48 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
+-(void)setTutor:(Tutor *)tutorEntered
+{
+    tutor = tutorEntered;
+}
+
+
 -(IBAction)donePressed:(id)sender 
 {
     
     [self.view removeFromSuperview];
     
 }
+-(IBAction)getSchedulePressed:(id)sender
+{
+//    [[DBInteract sharedInstance] getCoursesTutoredByName:tutor.idNumber]; 
+    //[[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text];
+    
+    [self presentModalViewController:[TutorScheduleViewController alloc] animated:YES];
+}
 
+-(IBAction)contactPressed:(id)sender
+{
+      Course *c1 = [tutor.coursesTutored objectAtIndex:0];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title", nil)
+                                                    message: c1.courseNumber
+                                                   delegate:nil
+                                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
+-(void)coursesUpdated {
+    
+    NSMutableArray *courses = [NSMutableArray alloc];
+    courses = [[DBInteract sharedInstance] currentCoursesTutored];
+    
+    tutor.coursesTutored = courses;
+    
+   
+}
 
 
 

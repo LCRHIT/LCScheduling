@@ -8,9 +8,9 @@
 
 //#import <Foundation/Foundation.h>
 
-@interface LCArgs : NSObject
+@interface LCArgsAlt : NSObject
 
+@property (nonatomic,retain) NSString* LCTutorID;
 
-@property (nonatomic, retain) NSString* LCTutorName;
 
 @end

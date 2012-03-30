@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tutor.h"
+#import "TutorProfileViewController.h"
 
-@interface TutorSearchResultsViewController : UITableViewController <UITableViewDataSource, UITableViewDataSource>
+@interface TutorSearchResultsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *possibleTutors;
 
--(IBAction)donePressed:(id)sender; 
+
+
 
 @end

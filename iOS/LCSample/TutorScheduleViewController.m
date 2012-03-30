@@ -48,4 +48,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(IBAction)donePressed:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 @end

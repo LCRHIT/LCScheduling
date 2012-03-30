@@ -10,4 +10,6 @@
 
 @interface TutorScheduleViewController : UIViewController
 
+-(IBAction)donePressed:(id)sender;
+
 @end

@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LCAuth.h"
+#import "DBInteract.h"
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>{
     IBOutlet UITableViewCell *userNameTable;
     IBOutlet UITableViewCell *passwordTable;
     
 }
+
+-(void)credentialsSubmitted:(NSNotification *) notification;
 
 @property(strong, nonatomic) IBOutlet UITextField *usernameField;
 @property(strong, nonatomic) IBOutlet UITextField *passwordField;

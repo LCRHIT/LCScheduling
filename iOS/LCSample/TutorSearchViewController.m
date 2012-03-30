@@ -19,6 +19,7 @@
     if (self) {
         self.title = NSLocalizedString(@"Tutor Search", @"Tutor Search");
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tutorsUpdated) name:@"TutorsUpdated" object:nil];
+        
     }
     
     return self;
@@ -72,6 +73,10 @@
 	[super viewDidDisappear:animated];
 }
 
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -89,12 +94,16 @@
 
 -(IBAction)submitPressed:(id)sender 
 {
-    
+    NSLog(@"name: %@",self.nameField.text);
     
     [[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text];
     
     
-    //    NSLog(@"tutors-->%@",[[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text]);
+//    [[DBInteract sharedInstance] getCoursesTutoredByName:@"Ian"];
+    
+    
+    
+//    NSLog(@"tutors-->%@",[[DBInteract sharedInstance] getTutorsWithName:self.nameField.text course:self.courseField.text andDateAvailable:self.dateField.text]);
     
     //    @synchronized(self) {
     
@@ -102,7 +111,6 @@
 }
 
 -(void)tutorsUpdated {
-    NSLog(@"possibilites: %@",[[[[DBInteract sharedInstance] possibleTutors] objectAtIndex:0] name]);
     NSMutableArray *tutors = [NSMutableArray alloc];
     tutors = [[DBInteract sharedInstance] possibleTutors];
     //    }
@@ -113,7 +121,7 @@
     TutorSearchResultsViewController *results = [[TutorSearchResultsViewController alloc] init];
     results.possibleTutors = tutors;
     
-//    [self.view.window.rootViewController presentModalViewController:results animated:NO];
+    //[self presentModalViewController:results animated:NO];
     
     [self.view addSubview:results.view];
     
@@ -132,6 +140,8 @@
 - (IBAction)doneEditing:(id)sender {
     [self.dateField resignFirstResponder];
 }
+
+
 @end
 
 

@@ -1,14 +1,14 @@
 //
-//  LCAuth.m
-//  LCSample
+//  TestAuth.m
+//  LearningCenter
 //
-//  Created by Ian Cundiff on 1/12/12.
+//  Created by Ian Cundiff on 3/16/12.
 //  Copyright (c) 2012 Rose-Hulman. All rights reserved.
 //
 
-#import "LCAuth.h"
+#import "TestAuth.h"
 
-@implementation LCAuth
+@implementation TestAuth
 
 @synthesize username;
 @synthesize password;

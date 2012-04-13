@@ -202,6 +202,44 @@ int done = 0;
     
 }
 
+-(void)bookTutorByName:(NSString*) name andTimeslot: (Timeslot *) timeslot {
+    responseType = 4;
+    
+    //initialize object manager with url of web service
+    RKObjectManager *manager = [[RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"] retain];
+    
+    RKObjectMapping* auth = [RKObjectMapping mappingForClass:[LCBooking
+ class]];
+    [auth mapAttributes:@"name", @"timeslot", nil];
+    
+    
+    //set parser to JSON for "text/html" in case it comes in that way
+    [[RKParserRegistry sharedRegistry] setParserClass:[RKJSONParserJSONKit class] forMIMEType:@"text/html"];
+    
+    //register the mappings with the object managers mapping provider
+    [manager.mappingProvider setSerializationMapping:auth forClass:[LCBooking class]];
+    
+    //let the manager know what MIME type to look out for
+    [manager setSerializationMIMEType:RKMIMETypeJSON]; 
+    
+    //create a router and set it to specific routes on the website for given request types
+    RKObjectRouter* router = [[RKObjectRouter new] autorelease];
+    [router routeClass:[LCAuth class] toResourcePath:@"/rest/authenticate" forMethod:RKRequestMethodPOST];   
+    manager.router = router;
+    
+    
+    LCBooking *args = [LCBooking new];
+    args.name = name;
+    args.timeslot = timeslot;
+    
+    
+    NSArray *postArray = [NSArray arrayWithObjects:manager, args, nil];
+    
+    [self performSelectorInBackground:@selector(postWithArray:) withObject:postArray];
+    
+    
+}
+
 -(void)postWithArray:(NSArray*)array {
     [[array objectAtIndex:0] postObject:[array objectAtIndex:1] delegate:self];
 }

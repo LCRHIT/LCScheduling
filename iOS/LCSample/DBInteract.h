@@ -16,8 +16,9 @@
 #import "Auth_Result.h"
 #import "Tutor.h"
 #import "Schedule.h"
-//#include "Semaphore.h"
 #import "TestAuth.h"
+#import "Timeslot.h"
+#import "LCBooking.h"
 
 @interface DBInteract : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>{
     

@@ -7,7 +7,11 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "TutorSearchViewController.h"
+#import "DBInteract.h"
 
 @interface LCUnitTests : SenTestCase
+
+@property (nonatomic, strong) TutorSearchViewController *search;
 
 @end

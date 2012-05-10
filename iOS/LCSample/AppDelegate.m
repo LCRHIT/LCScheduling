@@ -24,14 +24,21 @@
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     LoginViewController *loginView = [LoginViewController alloc];
-    [self.window.rootViewController presentModalViewController:loginView animated:NO];
+//    [self.window.rootViewController presentModalViewController:loginView animated:NO];
     
     //with these down here, they shouldn't be created until the user logs in...
-    HomeViewController *viewController1 = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
-    TutorSearchViewController *viewController2 = [[TutorSearchViewController alloc] initWithNibName:@"TutorSearchViewController" bundle:nil];
-    ScheduleViewController *viewController3 = [[ScheduleViewController alloc] initWithNibName:@"ScheduleViewController" bundle:nil];
-    ContactViewController *viewController4 = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, nil];
+    HomeViewController *homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+    homeViewController.tabBarItem.image = [UIImage imageNamed:@"home.png"];
+    TutorSearchViewController *tutorSearchViewController = [[TutorSearchViewController alloc] initWithNibName:@"TutorSearchViewController" bundle:nil];
+    tutorSearchViewController.tabBarItem.image = [UIImage imageNamed:@"search.png"];
+    
+    UINavigationController *searchNavController = [[UINavigationController alloc] initWithRootViewController:tutorSearchViewController];
+    searchNavController.navigationBar.barStyle = UIBarStyleBlackOpaque; 
+    
+    ContactViewController *contactViewController = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
+    contactViewController.tabBarItem.image = [UIImage imageNamed:@"contact.png"];
+    
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:homeViewController, searchNavController, contactViewController, nil];
     [self.window.rootViewController.view setNeedsDisplay];
 
     return YES;

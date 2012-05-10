@@ -10,15 +10,13 @@
 
 @implementation HomeViewController
 
-@synthesize sampleTutor;
+@synthesize homeImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Home", @"Home");
-       
-
     }
     return self;
 }
@@ -35,8 +33,13 @@
 {
     [super viewDidLoad];
     
-   
-	// Do any additional setup after loading the view, typically from a nib.
+    NSURL *homeImageURL = [NSURL URLWithString:@"http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Megan_Fox_LF.jpg/170px-Megan_Fox_LF.jpg"];
+    
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: homeImageURL];
+    homeImageView.image = [UIImage imageWithData: imageData];
+    [imageData release];
+    
+
 }
 
 - (void)viewDidUnload
@@ -71,22 +74,5 @@
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
-
-- (IBAction)tutorButtonPressed:(id)sender {
-    NSString *tutorInfo = [NSString stringWithFormat:@"Name: %@\nYear: %@\nEmail: %@\nMajor:%@",sampleTutor.name,sampleTutor.year,sampleTutor.email,sampleTutor.major];
-    
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Here's Some Tutor Information"
-                                                      message:tutorInfo
-                                                     delegate:nil
-                                            cancelButtonTitle:@"Thanks!"
-                                            otherButtonTitles:nil];
-    
-    [message show];
-    
-}
-
-
-
-
 
 @end

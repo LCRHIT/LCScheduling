@@ -12,5 +12,6 @@
 
 
 @property (nonatomic, retain) NSString* LCTutorName;
+@property (nonatomic, retain) NSString* LCCourseNumber;
 
 @end

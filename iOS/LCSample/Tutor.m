@@ -10,6 +10,6 @@
 
 @implementation Tutor
 
-@synthesize name,year,email,major,pictureURL, coursesTutored,idNumber;
+@synthesize tid,name,year,email,major,image_url,courses_tutored,about_tutor;
 
 @end

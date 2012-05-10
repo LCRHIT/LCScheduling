@@ -12,11 +12,9 @@
 #import "Tutor.h"
 #import "LCAuth.h"
 #import "LCArgs.h"
-#import "Auth_Result.h"
 #import "KerberosAccountManager.h"
 #import "HomeViewController.h"
 #import "TutorSearchViewController.h"
-#import "ScheduleViewController.h"
 #import "ContactViewController.h"
 #import "LoginViewController.h"
 

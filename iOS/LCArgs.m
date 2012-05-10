@@ -11,6 +11,7 @@
 @implementation LCArgs
 
 @synthesize LCTutorName;
+@synthesize LCCourseNumber;
 
 
 @end

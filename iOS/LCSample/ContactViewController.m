@@ -27,12 +27,27 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(IBAction)callPressed:(id)sender {
+    NSURL *phoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", @"tel://18128778876"]];
+    [[UIApplication sharedApplication] openURL:phoneURL];
+}
+
+-(IBAction)emailPressed:(id)sender {
+    MFMailComposeViewController *email = [[MFMailComposeViewController alloc] init];
+    email.mailComposeDelegate = self;
+    
+    [self presentModalViewController:email animated:YES];
+}
+
+-(IBAction)websitePressed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.rose-hulman.edu/offices-services/learning-center.aspx"]];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
@@ -46,6 +61,10 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

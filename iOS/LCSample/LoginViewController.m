@@ -11,7 +11,7 @@
 
 @implementation LoginViewController
 
-@synthesize usernameField,passwordField, userNameTable, passwordTable, overlay, wheel;
+@synthesize usernameField,passwordField, userNameTable, passwordTable, overlay, wheel, helpButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -148,8 +148,13 @@
         
 }
 
+-(IBAction)helpPressed:(id)sender {
+    [self presentModalViewController:[HelpScreenViewController alloc] animated:YES];
+}
+
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

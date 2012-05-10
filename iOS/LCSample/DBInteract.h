@@ -11,12 +11,9 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/Support/JSON/JSONKit/JSONKit.h>
 #import "LCArgs.h"
-#import "LCArgsAlt.h"
 #import "LCAuth.h"
-#import "Auth_Result.h"
 #import "Tutor.h"
 #import "Schedule.h"
-#import "TestAuth.h"
 #import "Timeslot.h"
 #import "LCBooking.h"
 
@@ -33,7 +30,7 @@
 
 -(NSMutableArray*)getTutorsWithName:(NSString*)name course:(NSString*)course andDateAvailable:(NSString*)date; //TODO: consider changing this to an NSDate...
 
--(NSMutableArray*)getCoursesTutoredByName:(NSString*)name; 
+-(NSMutableArray*)getCoursesTutoredByName:(NSString*)name;
 
 -(void)authenticateWithCredentials:(LCAuth*)credentials; //consider bool
 

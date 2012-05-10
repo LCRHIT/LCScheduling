@@ -19,8 +19,7 @@ int done = 0;
 
 - (id) init
 {
-    possibleTutors = [[NSMutableArray alloc] init];
-    NSLog(@"POSSIBLE TUTORS");
+    
     if ( self = [super init] )
     {
         
@@ -50,13 +49,10 @@ int done = 0;
     
     //set serlialization for each type of object    
     RKObjectMapping* argSerializationMapping = [RKObjectMapping mappingForClass:[LCArgs class] ];
-    [argSerializationMapping mapAttributes:@"LCTutorName", nil];
+    [argSerializationMapping mapAttributes:@"LCTutorName", @"LCCourseNumber", nil];
     
     RKObjectMapping* tutorSerializationMapping = [RKObjectMapping mappingForClass:[Tutor class] ];
     [tutorSerializationMapping mapAttributes:@"name", @"year", @"major", @"email", nil];
-    
-    RKObjectMapping* auth = [RKObjectMapping mappingForClass:[TestAuth class] ];
-    [tutorSerializationMapping mapAttributes:@"username", @"password", nil];
     
     
     //set parser to JSON for "text/html" in case it comes in that way
@@ -65,52 +61,48 @@ int done = 0;
     //register the mappings with the object managers mapping provider
     [manager.mappingProvider setSerializationMapping:argSerializationMapping forClass:[LCArgs class]];
     [manager.mappingProvider setSerializationMapping:tutorSerializationMapping forClass:[Tutor class]];
-    [manager.mappingProvider setSerializationMapping:auth forClass:[TestAuth class]];
     
     //let the manager know what MIME type to look out for
     [manager setSerializationMIMEType:RKMIMETypeJSON]; 
     
-    //create a router and set it to specific routes on the website for given request types
-    RKObjectRouter* router = [[RKObjectRouter new] autorelease];
-    [router routeClass:[LCArgs class] toResourcePath:@"/rest/get_tutors_by_name" forMethod:RKRequestMethodPOST];  
-//    [router routeClass:[TestAuth class] toResourcePath:@"/rest/authenticate" forMethod:RKRequestMethodPOST]; 
-    manager.router = router;
+//    RKObjectRouter* router = [[RKObjectRouter new] autorelease];
+//    [router routeClass:[LCArgs class] toResourcePath:@"/rest/get_tutors_by_name" forMethod:RKRequestMethodPOST]; 
+
     
-    //create mappings for the specific attributes of the objects
-    //    RKObjectMapping *argMap = [RKObjectMapping mappingForClass:[LCArgs class]];
-    //    [argMap mapKeyPath:@"LCTutorName" toAttribute:@"LCTutorName"];
-    //    [manager.mappingProvider setMapping:argMap forKeyPath:@"get_tutors_by_name"];
-    //    
-    //    RKObjectMapping *tutorMapping = [RKObjectMapping mappingForClass:[Tutor class]];
-    //    [tutorMapping mapKeyPath:@"name" toAttribute:@"name"];
-    //    [tutorMapping mapKeyPath:@"year" toAttribute:@"year"];
-    //    [tutorMapping mapKeyPath:@"major" toAttribute:@"major"];
-    //    [tutorMapping mapKeyPath:@"email" toAttribute:@"email"]; //attribute means in the objc class
-    //    //one for schedule in the future
-    //    [manager.mappingProvider setMapping:tutorMapping forKeyPath:@"get_tutors_by_name"];
-    
-    //create the object to post and post it with an appropriate object mapping
+    //create the object to post and post it with an appropriate object mapping 
     LCArgs *args = [LCArgs new];
-    args.LCTutorName = name;
-    
-//    TestAuth *args = [TestAuth new];
-//    args.username = @"cundifij";
-//    args.password = @"k";
-    
-    
-    NSArray *postArray = [NSArray arrayWithObjects:manager, args, nil];
-    
-    //@synchronized(self) {  
-    [self performSelectorInBackground:@selector(postWithArray:) withObject:postArray];
-    //}
-    
-    //    [self postWithArray:postArray];
-    
-    //this is making postObject sleep too...
-    
-    //    [manager performSelectorOnMainThread:@selector(postObject:delegate:) withObject:args withObject:self waitUntilDone:YES];
-    
-    
+    if (name.length != 0 || course.length != 0) {
+        if (name.length != 0) {
+            RKObjectRouter* router = [[RKObjectRouter new] autorelease];
+            [router routeClass:[LCArgs class] toResourcePath:@"/rest/get_tutors_by_name" forMethod:RKRequestMethodPOST];  
+            manager.router = router;
+            args.LCTutorName = name;
+        }
+        if (course.length != 0) {
+            RKObjectRouter* router = [[RKObjectRouter new] autorelease];
+            [router routeClass:[LCArgs class] toResourcePath:@"/rest/get_tutors_by_course" forMethod:RKRequestMethodPOST]; 
+            manager.router = router;
+            args.LCCourseNumber = course;
+        }
+        
+        if (name.length != 0 && course.length != 0) {
+            RKObjectRouter* router = [[RKObjectRouter new] autorelease];
+            [router routeClass:[LCArgs class] toResourcePath:@"/rest/get_tutors_by_name_and_course" forMethod:RKRequestMethodPOST]; 
+            manager.router = router;
+        }
+        
+        
+        NSArray *postArray = [NSArray arrayWithObjects:manager, args, nil];
+        [self performSelectorInBackground:@selector(postWithArray:) withObject:postArray];
+    } else {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Please enter at least one search term!"
+                                                          message:nil
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        
+        [message show];
+    }
     
     return possibleTutors;
     
@@ -123,7 +115,7 @@ int done = 0;
     RKObjectManager *manager = [[RKObjectManager objectManagerWithBaseURL:@"http://lcwebapp.csse.rose-hulman.edu"] retain];
     
     //set serlialization for each type of object    
-    RKObjectMapping* argSerializationMapping = [RKObjectMapping mappingForClass:[LCArgsAlt class] ];
+    RKObjectMapping* argSerializationMapping = [RKObjectMapping mappingForClass:[LCArgs class] ];
     [argSerializationMapping mapAttributes:@"LCTutorID", nil];
     
     RKObjectMapping* courseSerializationMapping = [RKObjectMapping mappingForClass:[Course class] ];
@@ -133,7 +125,7 @@ int done = 0;
     [[RKParserRegistry sharedRegistry] setParserClass:[RKJSONParserJSONKit class] forMIMEType:@"text/html"];
     
     //register the mappings with the object managers mapping provider
-    [manager.mappingProvider setSerializationMapping:argSerializationMapping forClass:[LCArgsAlt class]];
+    [manager.mappingProvider setSerializationMapping:argSerializationMapping forClass:[LCArgs class]];
     [manager.mappingProvider setSerializationMapping:courseSerializationMapping forClass:[Course class]];
     
     //let the manager know what MIME type to look out for
@@ -141,14 +133,14 @@ int done = 0;
     
     //create a router and set it to specific routes on the website for given request types
     RKObjectRouter* router = [[RKObjectRouter new] autorelease];
-    [router routeClass:[LCArgsAlt class] toResourcePath:@"/rest/get_tutor_courses_tutored" forMethod:RKRequestMethodPOST];  
+    [router routeClass:[LCArgs class] toResourcePath:@"/rest/get_tutor_courses_tutored" forMethod:RKRequestMethodPOST];  
     manager.router = router;
     
     
     
     //create the object to post and post it with an appropriate object mapping
-    LCArgsAlt *args = [LCArgsAlt new];
-    args.LCTutorID = name;
+    LCArgs *args = [LCArgs new];
+    args.LCTutorName = name;
     
     
     NSArray *postArray = [NSArray arrayWithObjects:manager, args, nil];
@@ -251,17 +243,6 @@ int done = 0;
     return schedule;
 }
 
-//generate md5 hash from string...not currently used
-//-(NSString *) returnMD5Hash:(NSString*)concat {
-//    const char *concat_str = [concat UTF8String];
-//    unsigned char result[CC_MD5_DIGEST_LENGTH];
-//    CC_MD5(concat_str, strlen(concat_str), result);
-//    NSMutableString *hash = [NSMutableString string];
-//    for (int i = 0; i < 16; i++)
-//        [hash appendFormat:@"%02X", result[i]];
-//    return [hash lowercaseString];
-//}
-
 #pragma mark ObjectLoaderDelegate methods 
 
 //TODO: handle problems and such here
@@ -290,6 +271,8 @@ int done = 0;
     //@synchronized(self) {
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
     
+    possibleTutors = [[NSMutableArray alloc] init];
+    
     
     //put everything from the response into an array
     
@@ -306,16 +289,15 @@ int done = 0;
             NSLog(@"in for loop\n");
             //make a new tutor
             Tutor *tempTutor = [Tutor new];
-            tempTutor.idNumber = [[tutors valueForKey:@"TID"] objectAtIndex:i];
+            tempTutor.tid = [[tutors valueForKey:@"TID"] objectAtIndex:i];
             tempTutor.name = [[tutors valueForKey:@"name"] objectAtIndex:i];
             tempTutor.year = [[tutors valueForKey:@"year"] objectAtIndex:i];
             tempTutor.email = [[tutors valueForKey:@"email"] objectAtIndex:i];
             tempTutor.major = [[tutors valueForKey:@"major"] objectAtIndex:i];
-            tempTutor.pictureURL = [[tutors valueForKey:@"image_url"] objectAtIndex:i];
+            tempTutor.image_url = [[tutors valueForKey:@"image_url"] objectAtIndex:i];
+            tempTutor.email = [tempTutor.tid stringByAppendingString:@"@rose-hulman.edu"]; 
             
-            //add image_url
-        
-            //add the tutor to the array
+
             [possibleTutors addObject:tempTutor];
             NSLog(@"possible tutors: %@",[[possibleTutors objectAtIndex:i] name]);
         }

@@ -13,8 +13,6 @@
 
 @interface HomeViewController : UIViewController <UIAlertViewDelegate>
 
-@property(strong, nonatomic) Tutor *sampleTutor;
-
-- (IBAction)tutorButtonPressed:(id)sender;
+@property (nonatomic, strong) IBOutlet UIImageView *homeImageView;
 
 @end

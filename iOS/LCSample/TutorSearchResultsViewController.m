@@ -16,7 +16,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = NSLocalizedString(@"Search Results", @"Search Results");
     }
     return self;
 }
@@ -76,8 +76,6 @@
     NSString *cellValue = [[possibleTutors objectAtIndex:indexPath.row] name];
     cell.textLabel.text = cellValue;
     
-//    NSLog(@"cell: %@")
-    
     return cell;
 }
 
@@ -99,11 +97,13 @@
     
     
     
-    TutorProfileViewController *profileView = [TutorProfileViewController alloc];
+    TutorProfileViewController *profileView = [[TutorProfileViewController alloc] init];
     [profileView setTutor:tutor]; 
     
+    [self.navigationController pushViewController:profileView animated:YES];
+    
        
-    [self presentModalViewController:profileView animated:NO];
+//    [self presentModalViewController:profileView animated:NO];
     
 }
 

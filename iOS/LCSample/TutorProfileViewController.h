@@ -16,13 +16,13 @@
 
 @interface TutorProfileViewController : UIViewController
 {
-    Tutor *tutor;
 }
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *majorsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *yearLabel;
 @property (strong, nonatomic) IBOutlet UILabel *emailLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *pictureFrame;
+@property (strong, nonatomic) Tutor *tutor;
 
 -(void)setTutor:(Tutor *)tutorEntered;
 -(IBAction)getSchedulePressed:(id)sender;

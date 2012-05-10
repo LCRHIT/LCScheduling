@@ -11,13 +11,14 @@
 
 @interface Tutor : NSObject
 
-@property (strong, nonatomic) NSString *idNumber;
+@property (strong, nonatomic) NSString *tid;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *year;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *major;
-@property (strong, nonatomic) NSString *pictureURL;
-@property (strong, nonatomic) NSMutableArray *coursesTutored;
+@property (strong, nonatomic) NSString *image_url;
+@property (strong, nonatomic) NSMutableArray *courses_tutored;
+@property (strong, nonatomic) NSString *about_tutor;
 
 
 @end

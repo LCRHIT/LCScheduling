@@ -9,7 +9,7 @@
 #import "TutorProfileViewController.h"
 
 @implementation TutorProfileViewController
-@synthesize majorsLabel,titleLabel,yearLabel,emailLabel,pictureFrame;
+@synthesize majorsLabel,titleLabel,yearLabel,emailLabel,pictureFrame, tutor;
 
 
 
@@ -17,7 +17,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = NSLocalizedString(@"Tutor Profile" ,@"Tutor Profile");
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coursesUpdated) name:@"CoursesUpdated" object:nil];
     }
     return self;
@@ -42,15 +42,9 @@
     [majorsLabel setText:[NSString stringWithFormat :@"Major: %@",tutor.major]];
     [yearLabel setText:[NSString stringWithFormat :@"Class: %@",tutor.year]];
     [emailLabel setText:tutor.email];
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: tutor.pictureURL]];
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: tutor.image_url]];
     pictureFrame.image = [UIImage imageWithData: imageData];
     [imageData release];
-    
-  
-    
-    
-    
-   
 }
 
 - (void)viewDidUnload
@@ -89,7 +83,7 @@
 
 -(IBAction)contactPressed:(id)sender
 {
-      Course *c1 = [tutor.coursesTutored objectAtIndex:0];
+      Course *c1 = [tutor.courses_tutored objectAtIndex:0];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title", nil)
                                                     message: c1.courseNumber
                                                    delegate:nil
@@ -104,7 +98,7 @@
     NSMutableArray *courses = [NSMutableArray alloc];
     courses = [[DBInteract sharedInstance] currentCoursesTutored];
     
-    tutor.coursesTutored = courses;
+    tutor.courses_tutored = courses;
     
    
 }

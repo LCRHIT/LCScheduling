@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface ContactViewController : UIViewController
+@interface ContactViewController : UIViewController <MFMailComposeViewControllerDelegate>
+
+-(IBAction)callPressed:(id)sender;
+-(IBAction)emailPressed:(id)sender;
+-(IBAction)websitePressed:(id)sender;
 
 @end
